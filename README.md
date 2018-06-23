@@ -7,16 +7,18 @@
 {
   "name": "Name of suite",
   "params": {
-    "apiUrl": "http://localhost:8085/insight"
+    "apiUrl": "http://localhost:8080/insight",
+    "suiteParam": "suiteParamValue",
+    "id": 2346
   },
   "tests": [
     {
-      "name": "Get Insight",
+      "name": "Get Insights",
       "tag": "get",
       "rest": {
         "request": {
           "method": "GET",
-          "url": ":apiUrl/1",
+          "url": ":apiUrl",
           "headers": {
             "Accept": "application/json"
           }
@@ -24,52 +26,83 @@
         "expected": {
           "status": 200,
           "body": {
-            "id": 1,
-            "message": "First stupid insight",
-            "author": "gorskip"
+            "expectedField": "expectedValue"
           },
           "headers": {
-            "Content-Type": "application/json;charset=UTF-8"
+            "Accept": "application/json",
+            "Content-type": "application/json"
           }
         }
-      }
+      },
+      "db": {
+        "query": "select * from table"
+      },
+      "mapper": "mapperName"
     },
     {
-      "name": "Post Insight",
-      "tag": "post",
+      "name": "Name of test 2",
+      "params": {
+        "testParam": "testParam 2"
+      },
+      "tag": "complex",
       "rest": {
+        "params": {
+          "apiParam": "apiParam"
+        },
         "request": {
           "method": "POST",
-          "url": ":apiUrl",
           "body": {
-            "message": "RestDB Message",
-            "tags": [
-              "development"
+            "date": "2018-06-08",
+            "name": "Name of something",
+            "someList": [
+              "a",
+              "b",
+              "c"
             ]
           },
+          "url": ":api_url/portfolio:dbParam",
           "headers": {
-            "Content-Type": "application/json;charset=UTF-8"
-          }
-        },
-        "expected": {
-          "status": 200,
-          "body": {
-            "author": "gorskip",
-            "message": "RestDB Message",
-            "tags": [
-              {
-                "name": "development"
-              }
-            ]
-          },
-          "headers": {
-            "Content-Type": "application/json;charset=UTF-8"
+            "Accept": "application/json",
+            "ContentType": "application/json"
           }
         }
+      },
+      "db": {
+        "params": {
+          "dbParam": "dbParamValue"
+        },
+        "query": ":dbParam :apiParam :testParam :suiteParam"
       }
     }
   ]
 }
+```
+##### Configuration reading
+```java
+testSuite.getName();
+testSuite.getParams();
+List<TestCase> testCases = testSuite.getTests();
+
+testCases.forEach(testCase -> {
+    testCase.getName();
+    testCase.getParams();
+    testCase.getMapper();
+    testCase.getTag();
+        Rest restData = testCase.getRest();
+            restData.getParams();
+                Request request = restData.getRequest();
+                    request.getUrl();
+                    request.getMethod();
+                    request.getHeaders();
+                    request.getBody();
+                Expected expected = restData.getExpected();
+                    expected.getStatus();
+                    expected.getHeaders();
+                    expected.getBody();
+        Db dbData = testCase.getDb();
+            dbData.getParams();
+            dbData.getParams();
+});
 ```
 ### Rest Client
 #### Request execution
