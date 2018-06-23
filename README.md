@@ -160,7 +160,7 @@ VerifyIf verifyIf = new VerifyIf.VerifyBuilder()
     "name": "Mock response",
     "type": [
       {"array": [1, 2]},
-      {"array": [3, 4] }
+      {"array": [3, 4]}
     ]
   }
 }
@@ -173,7 +173,7 @@ VerifyIf verifyIf = new VerifyIf.VerifyBuilder()
   "body": {
     "name": "Mock response 2",
     "type": [
-      {"array": [2, 1]},
+      {"array": [1, 2]},
       {"array": [4, 3]}
     ],
     "addedField": "value"
@@ -202,16 +202,13 @@ java.lang.AssertionError: Body: Response and Expected are not equal:
     "expectedValue" : "Mock response"
   } ],
   "removed" : [ {
-    "path" : "/type/0/array/0"
+    "path" : "/id"
   } ],
   "added" : [ {
     "path" : "/addedField",
     "value" : "value"
   } ],
   "moved" : [ {
-    "from" : "/id",
-    "path" : "/type/0/array/2"
-  }, {
     "from" : "/type/1/array/0",
     "path" : "/type/1/array/1"
   } ]
