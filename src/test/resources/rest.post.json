@@ -1,0 +1,39 @@
+{
+  "name": "Name of suite",
+  "params": {
+    "apiUrl": "http://localhost:8085/insight"
+  },
+  "tests": [
+    {
+      "name": "Post Insight",
+      "tag": "post",
+      "rest": {
+        "request" : {
+          "method": "POST",
+          "url": ":apiUrl",
+          "body":
+          {
+            "message": "RestDB Message",
+            "tags": [
+              "development"
+            ]
+          },
+          "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+          }
+
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "author":"gorskip", "message":"RestDBs Message","tags":[{"name":"development"}]
+          },
+          "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+          }
+        }
+      }
+    }
+  ]
+
+}

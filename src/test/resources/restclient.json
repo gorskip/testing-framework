@@ -1,0 +1,30 @@
+{
+  "name": "Name of suite",
+  "params": {
+    "apiUrl": "http://localhost:8085/insight"
+  },
+  "tests": [
+    {
+      "name": "Get Insight",
+      "tag": "get",
+      "rest": {
+        "request" : {
+          "method": "GET",
+          "url": ":apiUrl/1",
+          "headers": {
+            "Accept": "application/json"
+          }
+      },
+      "expected": {
+        "status": 200,
+        "body": {
+          "id":1,"message":"First stupid insight","author":"gorskip","tags":[{"id":3,"name":"Animals"}]
+        },
+        "headers": {
+          "Accept": "application/json",
+          "Content-type": "application/json"
+        }
+      }
+    }
+  }
+]}
