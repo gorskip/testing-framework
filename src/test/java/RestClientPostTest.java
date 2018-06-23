@@ -1,6 +1,6 @@
 import client.RestClient;
 import client.RestClientBuilder;
-import client.mapper.Response;
+import client.mapper.RestResponse;
 import config.ResourceConfigProvider;
 import config.TestCase;
 import config.TestSuite;
@@ -34,13 +34,13 @@ public class RestClientPostTest extends AbstractTest {
         Rest rest = testCase.getRest();
         Expected expected = rest.getExpected();
 
-        Response response = restClient.execute(rest.getRequest());
+        RestResponse response = restClient.execute(rest.getRequest());
 
-        //response contains expected object
-//        assertContains(expected, response);
+        //mock contains expected object
+//        assertContains(expected, mock);
 
         // PROBABLY EQUALS,
-//        TODO: check if response is object or array
+//        TODO: check if mock is object or array
 
         verifyIf.given(response)
                 .contains(expected).body();
@@ -48,7 +48,7 @@ public class RestClientPostTest extends AbstractTest {
 
     }
 
-    private void assertContains(Expected expected, Response response) {
+    private void assertContains(Expected expected, RestResponse response) {
         String expectedObject = JsonMapper.toJson(expected.getBody());
         String responseObject = JsonMapper.toJson(response.getBody());
         JSONCompare.assertEquals(expectedObject, responseObject);

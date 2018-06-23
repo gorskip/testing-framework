@@ -4,7 +4,7 @@ import client.mapper.Response;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import config.rest.Expected;
-import json.*;
+import json.JsonMapper;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import verify.diff.Diff;
 import verify.diff.DiffSummarize;

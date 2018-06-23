@@ -1,6 +1,6 @@
 package client;
 
-import client.mapper.Response;
+import client.mapper.RestResponse;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
@@ -17,11 +17,11 @@ public class RestClient {
         Unirest.setHttpClient(httpClient);
     }
 
-    public Response execute(Request request) {
+    public RestResponse execute(Request request) {
         return execute(request, Object.class);
     }
 
-    public <T> Response<T> execute(Request request, Class<T> clazz) {
+    public <T> RestResponse<T> execute(Request request, Class<T> clazz) {
         switch (request.getMethod()) {
             case "GET":
                 return get(request, clazz);
@@ -32,9 +32,9 @@ public class RestClient {
         return null;
     }
 
-    private <T> Response<T> post(Request request, Class<T> clazz) {
+    private <T> RestResponse<T> post(Request request, Class<T> clazz) {
         try {
-            return new Response<>(executePost(request), clazz);
+            return new RestResponse<>(executePost(request), clazz);
         } catch (UnirestException e) {
             throw new RequestException("Cannot execute request: " + request, e);
         }
@@ -47,9 +47,9 @@ public class RestClient {
                 .asJson();
     }
 
-    private <T> Response<T> get(Request request, Class<T> clazz) {
+    private <T> RestResponse<T> get(Request request, Class<T> clazz) {
         try {
-            return new Response<>(executeGet(request), clazz);
+            return new RestResponse<>(executeGet(request), clazz);
         } catch (UnirestException e) {
             throw new RequestException("Cannot execute request: " + request, e);
         }

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "equal_status_contains_body",
+    "expected": {
+      "status": 200,
+      "headers": null,
+      "body": {
+        "id": 1,
+        "name": "Mock response",
+        "type": ["mock"]
+      }
+    },
+    "response": {
+      "status": 200,
+      "headers": null,
+      "body": {
+        "id": 1,
+        "name": "Mock response",
+        "type": ["test", "mock"]
+      }
+    }
+  },
+  {
+    "name": "equal_status_and_body",
+    "expected": {
+      "status": 200,
+      "headers": null,
+      "body": {
+        "id": 1,
+        "name": "Mock response",
+        "type": ["test", "mock"]
+      }
+    },
+    "response": {
+      "status": 200,
+      "headers": null,
+      "body": {
+        "id": 1,
+        "name": "Mock response",
+        "type": ["test", "mock"]
+      }
+    }
+  },
+  {
+    "name": "equal_status_and_body_with_order",
+    "expected": {
+      "status": 200,
+      "headers": null,
+      "body": {
+        "id": 1,
+        "name": "Mock response",
+        "type": [
+          {"array": [1, 2]},
+          {"array": [3, 4] }
+        ]
+      }
+    },
+    "response": {
+      "status": 200,
+      "headers": null,
+      "body": {
+        "id": 1,
+        "name": "Mock response",
+        "type": [
+          {"array": [1, 2]},
+          {"array": [3, 4]}
+        ]
+      }
+    }
+  }
+
+]

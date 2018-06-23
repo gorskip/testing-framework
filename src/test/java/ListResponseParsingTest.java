@@ -1,7 +1,6 @@
 import client.RestClient;
 import client.RestClientBuilder;
 import client.mapper.Response;
-import verify.VerifyIf;
 import config.ResourceConfigProvider;
 import config.TestCase;
 import config.TestSuite;
@@ -10,6 +9,7 @@ import config.rest.Rest;
 import json.ParamsMapper;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import verify.VerifyIf;
 
 public class ListResponseParsingTest extends  AbstractTest {
 

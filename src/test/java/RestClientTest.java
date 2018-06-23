@@ -1,7 +1,7 @@
 import client.RestClient;
 import client.RestClientBuilder;
 import client.entity.Insight;
-import client.mapper.Response;
+import client.mapper.RestResponse;
 import config.ResourceConfigProvider;
 import config.TestCase;
 import config.TestSuite;
@@ -30,7 +30,7 @@ public class RestClientTest extends AbstractTest {
         Request request = testSuite.getFirstTest().getRest().getRequest();
         System.out.println(JsonMapper.toJson(request));
 
-        Response<Insight> response = restClient.execute(request, Insight.class);
+        RestResponse<Insight> response = restClient.execute(request, Insight.class);
 
         assert 200 == response.getStatus();
         String header = response.getHeaders().getFirst("Content-Type");
@@ -49,7 +49,7 @@ public class RestClientTest extends AbstractTest {
         Rest rest = test.getRest();
         Request request = rest.getRequest();
 
-        Response<Insight> response = restClient.execute(request, Insight.class);
+        RestResponse<Insight> response = restClient.execute(request, Insight.class);
 
         Expected expected = rest.getExpected();
         assert expected.getBodyAs(Insight.class).equals(response.getBody());
@@ -64,7 +64,7 @@ public class RestClientTest extends AbstractTest {
         Rest rest = test.getRest();
         Request request = rest.getRequest();
 
-        Response<Insight> response = restClient.execute(request, Insight.class);
+        RestResponse<Insight> response = restClient.execute(request, Insight.class);
         Expected expected = rest.getExpected();
 
         verifyIf.given(response)
