@@ -116,3 +116,104 @@ verifyIf.given(response)
         .contains(expected).body();
 ```
 #### Response parsing
+### Assertions
+#### VerifyIf
+```java
+new VerifyIf()
+    .given(response)
+    .has(expected)
+    .status()
+    .and(expected)
+    .body()
+    .and()
+    .contains(expected)
+    .headers();
+ ```
+ or:
+ ```java
+ new VerifyIf()
+    .given(response)
+    .has(expected)
+    .status()
+    .body()
+    .contains(expected)
+    .headers();
+  ```
+#### VerifyIf builder
+```java
+VerifyIf verifyIf = new VerifyIf.VerifyBuilder().build();
+```
+##### With order checking
+```java
+VerifyIf verifyIf = new VerifyIf.VerifyBuilder()
+    .withOrderChecking()
+    .build();
+```
+#### Example
+##### Expected response:
+```json
+{
+  "status": 200,
+  "headers": null,
+  "body": {
+    "id": 1,
+    "name": "Mock response",
+    "type": [
+      {"array": [1, 2]},
+      {"array": [3, 4] }
+    ]
+  }
+}
+```
+##### Response:
+```json
+{
+  "status": 201,
+  "headers": null,
+  "body": {
+    "name": "Mock response 2",
+    "type": [
+      {"array": [2, 1]},
+      {"array": [4, 3]}
+    ],
+    "addedField": "value"
+  }
+}
+```
+##### Tested by:
+```java
+VerifyIf verifyIf = new VerifyIf.VerifyBuilder()
+        .withOrderChecking()
+        .build();
+
+verifyIf.given(response)
+        .has(expected)
+        .status()
+        .and()
+        .body();
+```
+##### Assertion result:
+```json
+java.lang.AssertionError: Body: Response and Expected are not equal:
+{
+  "changed" : [ {
+    "path" : "/name",
+    "value" : "Mock response 2",
+    "expectedValue" : "Mock response"
+  } ],
+  "removed" : [ {
+    "path" : "/type/0/array/0"
+  } ],
+  "added" : [ {
+    "path" : "/addedField",
+    "value" : "value"
+  } ],
+  "moved" : [ {
+    "from" : "/id",
+    "path" : "/type/0/array/2"
+  }, {
+    "from" : "/type/1/array/0",
+    "path" : "/type/1/array/1"
+  } ]
+}
+```
