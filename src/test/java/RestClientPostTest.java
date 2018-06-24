@@ -6,11 +6,9 @@ import config.TestCase;
 import config.TestSuite;
 import config.rest.Expected;
 import config.rest.Rest;
-import json.JsonMapper;
 import json.ParamsMapper;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import ro.skyah.comparator.JSONCompare;
 
 import java.io.IOException;
 
@@ -48,10 +46,5 @@ public class RestClientPostTest extends AbstractTest {
 
     }
 
-    private void assertContains(Expected expected, RestResponse response) {
-        String expectedObject = JsonMapper.toJson(expected.getBody());
-        String responseObject = JsonMapper.toJson(response.getBody());
-        JSONCompare.assertEquals(expectedObject, responseObject);
-    }
 
 }
