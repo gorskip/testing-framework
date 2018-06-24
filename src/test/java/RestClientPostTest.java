@@ -6,7 +6,7 @@ import config.TestCase;
 import config.TestSuite;
 import config.rest.Expected;
 import config.rest.Rest;
-import json.ParamsMapper;
+import config.ParamsMapper;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

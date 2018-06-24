@@ -1,7 +1,7 @@
 import config.TestCaseProvider;
 import config.TestSuite;
 import json.JsonMapper;
-import json.ParamsMapper;
+import config.ParamsMapper;
 import org.junit.Test;
 
 public class ParamsMapperTest extends AbstractTest {

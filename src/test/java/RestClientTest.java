@@ -9,7 +9,7 @@ import config.rest.Expected;
 import config.rest.Request;
 import config.rest.Rest;
 import json.JsonMapper;
-import json.ParamsMapper;
+import config.ParamsMapper;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
