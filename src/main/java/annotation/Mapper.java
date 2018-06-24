@@ -7,9 +7,7 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface Source {
+public @interface Mapper {
 
-    String rest();
-    String db();
-    String mapper();
+    String name() default "";
 }

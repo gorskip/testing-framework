@@ -141,22 +141,13 @@ public class VerifyIf {
 
     public DiffSummarize getDiffSummarize(JsonNode patchNode) {
         List diffs = JsonMapper.fromJson(patchNode.toString(), new TypeReference<List<Diff>>() {});
-//        if(verifyOrder) {
-            List moveDiffs = JsonMapper.fromJson(patchNode.toString(), new TypeReference<List<MoveDiff>>(){});
-            return new DiffSummarizeBuilder(diffs)
-                    .withAdded()
-                    .withRemoved()
-                    .withMoved(moveDiffs)
-                    .withChanged(JsonMapper.toJson(expected.getBody()))
-                    .build();
-//        }
-//        return new DiffSummarizeBuilder(diffs)
-//                .withAdded()
-//                .withRemoved()
-//                .withChanged(JsonMapper.toJson(expected.getBody()))
-//                .build();
-
-
+        List moveDiffs = JsonMapper.fromJson(patchNode.toString(), new TypeReference<List<MoveDiff>>(){});
+        return new DiffSummarizeBuilder(diffs)
+                .withAdded()
+                .withRemoved()
+                .withMoved(moveDiffs)
+                .withChanged(JsonMapper.toJson(expected.getBody()))
+                .build();
     }
 
     private void enableOrderChecking() {
