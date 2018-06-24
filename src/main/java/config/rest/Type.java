@@ -8,5 +8,5 @@ public class Type {
     private String status;
     private String body;
     private String headers;
-    private boolean withOrder = false;
+    private boolean withOrder;
 }
