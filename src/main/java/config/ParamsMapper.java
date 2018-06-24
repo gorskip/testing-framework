@@ -1,9 +1,8 @@
-package json;
+package config;
 
-import config.TestCase;
-import config.TestSuite;
-import config.rest.Rest;
 import config.db.Db;
+import config.rest.Rest;
+import json.JsonMapper;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Map;
