@@ -1,18 +1,31 @@
 package run;
 
+import config.ParamsMapper;
 import config.ResourceConfigProvider;
 import config.TestSuite;
-import config.ParamsMapper;
+import report.SoutReporter;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        TestSuite rawTestSuite = new ResourceConfigProvider("test.runner.json").getTestSuite();
+        String testSuiteConfigurationPath;
+        if(args != null && args.length > 0 ) {
+            testSuiteConfigurationPath = args[0];
+        }else {
+            testSuiteConfigurationPath = "test.runner.json";
+        }
+
+        TestSuite rawTestSuite = new ResourceConfigProvider(testSuiteConfigurationPath).getTestSuite();
         TestSuite testSuite = new ParamsMapper().map(rawTestSuite);
 
-        new TestRunner()
-                .run(testSuite);
+       TestRunner testRunner =   new TestRunnerBuilder()
+                .addReporter(new SoutReporter())
+//                .addReporter(new HtmlReporter("../../resources/", "template.ftl"))
+                .build();
 
+       testRunner
+               .run(testSuite)
+               .report();
     }
 }

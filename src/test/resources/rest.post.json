@@ -21,7 +21,6 @@
           "headers": {
             "Content-Type": "application/json;charset=UTF-8"
           }
-
         },
         "expected": {
           "status": 200,
