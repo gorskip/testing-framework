@@ -23,7 +23,7 @@ public class ListResponseParsingTest extends  AbstractTest {
 
     @Test
     public void Should_Verify_List_Body_Response_Without_Order() {
-        TestCase testCase = testSuite.getFirstTest();
+        TestCase testCase = testSuite.getTests().get(0);
         RestClient restClient = new RestClientBuilder().build();
         for(int i=0; i< 1000; i++) {
             Rest rest = testCase.getRest();
@@ -40,7 +40,7 @@ public class ListResponseParsingTest extends  AbstractTest {
 
     @Test
     public void Should_Verify_List_Body_Response_With_Order() {
-        TestCase testCase = testSuite.getFirstTest();
+        TestCase testCase = testSuite.getTests().get(0);
         RestClient restClient = new RestClientBuilder().build();
         for(int i=0; i< 1000; i++) {
             Rest rest = testCase.getRest();

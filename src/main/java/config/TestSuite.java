@@ -12,8 +12,8 @@ public class TestSuite {
     Map<String, Object> params;
     List<TestCase> tests;
 
-    public TestCase getFirstTest() {
-        return tests.get(0);
-    }
+//    public TestCase getFirstTest() {
+//        return tests.get(0);
+//    }
 
 }

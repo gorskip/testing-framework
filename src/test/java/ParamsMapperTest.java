@@ -21,4 +21,15 @@ public class ParamsMapperTest extends AbstractTest {
 
 
     }
+    @Test
+    public void Should_FillTestSuiteConfigWithParamsValues2() {
+
+        TestCaseProvider provider = getProvider("raw.test.suite.json");
+        TestSuite testSuite = new ParamsMapper().map(provider.getTestSuite());
+
+        provider = getProvider("parametrized.test.suite.json");
+        TestSuite expectedSuite = provider.getTestSuite();
+
+        assert JsonMapper.toJson(testSuite).equals(JsonMapper.toJson(expectedSuite));
+    }
 }

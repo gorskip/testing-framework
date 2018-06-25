@@ -1,0 +1,47 @@
+{
+  "name": "Name of suite",
+  "params": {
+    "apiUrl": "http://localhost:8085/application",
+    "bodyExpectedType": "CONTAIN"
+  },
+  "tests": [
+    {
+      "params": {
+        "employeeName": "Janusz",
+        "departmentName": "DEPARTMENT_NAME"
+      },
+      "name": "Create new employee",
+      "tag": "post",
+      "rest": {
+        "params": {
+          "departmentName": "IT"
+        },
+        "request" : {
+          "method": "POST",
+          "url": "http://localhost:8085/application/employee",
+          "body":
+          {
+            "name": "Janusz",
+            "department": "IT"
+          },
+          "headers": {}
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "name":"Janusz",
+            "department": "IT"
+          },
+          "headers": {},
+          "type": {
+            "status": 201,
+            "body": "CONTAIN"
+          }
+        }
+      },
+      "db": {
+        "query": "SELECT NAME, DEPARTMENT_NAME FROM EMPLOYEE"
+      }
+    }
+  ]
+}

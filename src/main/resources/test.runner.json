@@ -60,7 +60,7 @@
           "status": 200,
           "body": {
             "author": "gorskip",
-            "message": "RestDB Message",
+            "message": "RestDB Message 2",
             "tags": [
               {
                 "name": "development"

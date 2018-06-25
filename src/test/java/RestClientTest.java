@@ -27,7 +27,7 @@ public class RestClientTest extends AbstractTest {
     public void Should_Return_Valid_Object_By_GET_Method() {
         RestClient restClient = new RestClientBuilder().build();
 
-        Request request = testSuite.getFirstTest().getRest().getRequest();
+        Request request = testSuite.getTests().get(0).getRest().getRequest();
         System.out.println(JsonMapper.toJson(request));
 
         RestResponse<Insight> response = restClient.execute(request, Insight.class);
@@ -45,7 +45,7 @@ public class RestClientTest extends AbstractTest {
     public void Should_Validate_Response_Against_Expected_Value() {
         RestClient restClient = new RestClientBuilder().build();
 
-        TestCase test = testSuite.getFirstTest();
+        TestCase test = testSuite.getTests().get(0);
         Rest rest = test.getRest();
         Request request = rest.getRequest();
 
@@ -60,7 +60,7 @@ public class RestClientTest extends AbstractTest {
     public void Should_Validate_Response_Using_Own_Verifier() {
         RestClient restClient = new RestClientBuilder().build();
 
-        TestCase test = testSuite.getFirstTest();
+        TestCase test = testSuite.getTests().get(0);
         Rest rest = test.getRest();
         Request request = rest.getRequest();
 

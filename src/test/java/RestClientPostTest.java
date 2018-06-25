@@ -25,7 +25,7 @@ public class RestClientPostTest extends AbstractTest {
 
     @Test
     public void Should_Create_New_Object() throws IOException {
-        TestCase testCase = testSuite.getFirstTest();
+        TestCase testCase = testSuite.getTests().get(0);
 
         RestClient restClient = new RestClientBuilder().build();
 
