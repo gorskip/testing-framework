@@ -25,7 +25,6 @@ public class JsonMapper {
                 .enable(SerializationFeature.INDENT_OUTPUT);
     }
 
-
     public static <T> T fromJson(String json, Class<T> clazz) {
         try {
             return MAPPER.readValue(json, clazz);

@@ -1,11 +1,12 @@
 package report;
 
 import config.TestCase;
+import util.FileUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SoutReporter implements Reporter {
+public class ExtractBuilder implements TestListener {
 
     private List<TestResult> testResults = new ArrayList<>();
 
@@ -36,8 +37,6 @@ public class SoutReporter implements Reporter {
 
     @Override
     public void onTestsFinish() {
-        System.out.println(testResultsToJson(testResults));
+        FileUtil.saveAsJson("test-report.json", testResults);
     }
-
-
 }

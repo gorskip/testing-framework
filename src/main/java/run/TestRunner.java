@@ -8,7 +8,8 @@ import config.TestSuite;
 import config.rest.Expected;
 import config.rest.Request;
 import config.rest.Rest;
-import report.Reporter;
+import report.ExtractBuilder;
+import report.TestListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,14 +18,15 @@ public class TestRunner {
 
     private final RestClient restClient;
 
-    private List<Reporter> reporters = new ArrayList<>();
+    private List<TestListener> testListeners = new ArrayList<>();
 
     public TestRunner() {
         this.restClient = new RestClientBuilder().build();
+        testListeners.add(new ExtractBuilder());
     }
 
-    public void setReporters(List<Reporter> reporters) {
-        this.reporters = reporters;
+    public void setTestListeners(List<TestListener> testListeners) {
+        this.testListeners = testListeners;
     }
 
     public TestRunner run(TestSuite testSuite) {
@@ -33,7 +35,7 @@ public class TestRunner {
         return this;
     }
 
-    public void runTests(List<TestCase> tests) {
+    private void runTests(List<TestCase> tests) {
         tests.forEach(test -> run(test));
     }
 
@@ -41,9 +43,9 @@ public class TestRunner {
         System.out.println("Test Case: " + test.getName());
         try {
             runRest(test.getRest());
-            runOnTestSuccessListeners(test);
-        }catch(Exception | Error e) {
-            runOnTestFailireListeners(test, e.getMessage());
+            runOnTestSuccess(test);
+        }catch(Exception e) {
+            runOnTestFailure(test, e.getMessage());
         }
     }
 
@@ -56,23 +58,23 @@ public class TestRunner {
 
     }
 
-    private void runOnTestSuccessListeners(TestCase test) {
-        reporters.forEach(reporter ->
+    private void runOnTestSuccess(TestCase test) {
+        testListeners.forEach(reporter ->
                 reporter.onTestSuccess(test)
         );
     }
 
-    private void runOnTestFailireListeners(TestCase test, String failureMessage) {
-        reporters.forEach(reporter ->
+    private void runOnTestFailure(TestCase test, String failureMessage) {
+        testListeners.forEach(reporter ->
                 reporter.onTestFailure(test, failureMessage)
         );
     }
 
-    public void addReporter(Reporter reporter) {
-        reporters.add(reporter);
+    public void addReporter(TestListener testListener) {
+        testListeners.add(testListener);
     }
 
     public void report() {
-        reporters.forEach(reporter -> reporter.onTestsFinish());
+        testListeners.forEach(reporter -> reporter.onTestsFinish());
     }
 }

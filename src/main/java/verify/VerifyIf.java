@@ -4,6 +4,7 @@ import client.mapper.Response;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import config.rest.Expected;
+import exception.AssertionException;
 import json.JsonMapper;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import verify.diff.Diff;
@@ -126,7 +127,7 @@ public class VerifyIf {
     }
 
     private void throwAssertion(DiffSummarize diff, String message) {
-        throw new AssertionError(message+":\n"
+        throw new AssertionException(message+":\n"
                 .concat(pretty(diff)));
     }
 

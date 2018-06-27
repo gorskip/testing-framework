@@ -1,6 +1,6 @@
 package run;
 
-import report.Reporter;
+import report.TestListener;
 
 import java.util.List;
 
@@ -8,14 +8,14 @@ public class TestRunnerBuilder {
 
     TestRunner testRunner = new TestRunner();
 
-    public TestRunnerBuilder withTestListeners(List<Reporter> reporters) {
-        testRunner.setReporters(reporters);
+    public TestRunnerBuilder withTestListeners(List<TestListener> testListeners) {
+        testRunner.setTestListeners(testListeners);
         return this;
     }
 
-    public TestRunnerBuilder addReporter(Reporter reporter) {
+    public TestRunnerBuilder addReporter(TestListener testListener) {
         testRunner.addReporter(
-                reporter);
+                testListener);
         return this;
     }
 

@@ -6,13 +6,14 @@ import config.ParamsMapper;
 import config.TestSuite;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.ParseException;
-import report.HtmlReporter;
-import report.Reporter;
-import report.SoutReporter;
+import report.HtmlTestListener;
+import report.TestListener;
+import report.SoutTestListener;
 
 import java.util.*;
 
 public class Main {
+
 
     public static void main(String[] args) throws ParseException {
 
@@ -33,18 +34,18 @@ public class Main {
                .report();
     }
 
-    public static Set<Reporter> getReporters(String[] commandReporters) {
-        Set<Reporter> reporters = new HashSet<>();
+    public static Set<TestListener> getReporters(String[] commandReporters) {
+        Set<TestListener> testListeners = new HashSet<>();
         if(commandReporters != null) {
             Arrays.asList(commandReporters).forEach(reporter -> {
                 switch(reporter.toLowerCase()) {
-                    case "sout": reporters.add(new SoutReporter());
+                    case "sout": testListeners.add(new SoutTestListener());
                         break;
-                    case "html": reporters.add(new HtmlReporter("../../resources/", "template.ftl"));
+                    case "html": testListeners.add(new HtmlTestListener("../../resources/", "template.ftl"));
                         break;
                 }
             });
         }
-        return reporters;
+        return testListeners;
     }
 }

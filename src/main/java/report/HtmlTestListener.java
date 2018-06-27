@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 // TODO: refactor this ugly code!
-public class HtmlReporter implements Reporter {
+public class HtmlTestListener implements TestListener {
 
     private final String templateDirectory;
     private final String templateName;
@@ -26,7 +26,7 @@ public class HtmlReporter implements Reporter {
     private Configuration cfg;
     Template temp;
 
-    public HtmlReporter(String templateDirectory, String templateName) {
+    public HtmlTestListener(String templateDirectory, String templateName) {
         this.templateName = templateName;
         this.templateDirectory = templateDirectory;
         configure();
