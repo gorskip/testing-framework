@@ -72,7 +72,7 @@ public class HtmlReporter implements Reporter {
     }
 
     @Override
-    public void onTestSkip(TestCase testCase) {
+    public void onTestSkipped(TestCase testCase) {
         TestResult result = new TestResult();
         result.setStatus(Status.SKIPPED);
         result.setTestCase(testCase);

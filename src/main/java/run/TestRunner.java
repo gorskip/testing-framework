@@ -42,7 +42,7 @@ public class TestRunner {
         try {
             runRest(test.getRest());
             runOnTestSuccessListeners(test);
-        }catch(AssertionError e) {
+        }catch(Exception | Error e) {
             runOnTestFailireListeners(test, e.getMessage());
         }
     }

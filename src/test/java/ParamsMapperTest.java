@@ -1,4 +1,4 @@
-import config.TestCaseProvider;
+import config.TestSuiteProvider;
 import config.TestSuite;
 import json.JsonMapper;
 import config.ParamsMapper;
@@ -9,7 +9,7 @@ public class ParamsMapperTest extends AbstractTest {
 
     @Test
     public void Should_FillTestSuiteConfigWithParamsValues() {
-        TestCaseProvider provider = getProvider("provider.test.json");
+        TestSuiteProvider provider = getProvider("provider.test.json");
 
         TestSuite testSuite = new ParamsMapper().map(provider.getTestSuite());
 
@@ -24,7 +24,7 @@ public class ParamsMapperTest extends AbstractTest {
     @Test
     public void Should_FillTestSuiteConfigWithParamsValues2() {
 
-        TestCaseProvider provider = getProvider("raw.test.suite.json");
+        TestSuiteProvider provider = getProvider("raw.test.suite.json");
         TestSuite testSuite = new ParamsMapper().map(provider.getTestSuite());
 
         provider = getProvider("parametrized.test.suite.json");

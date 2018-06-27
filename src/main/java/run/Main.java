@@ -1,31 +1,50 @@
 package run;
 
+import cmd.Cmd;
+import config.FileProvider;
 import config.ParamsMapper;
-import config.ResourceConfigProvider;
 import config.TestSuite;
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.ParseException;
+import report.HtmlReporter;
+import report.Reporter;
 import report.SoutReporter;
+
+import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 
-        String testSuiteConfigurationPath;
-        if(args != null && args.length > 0 ) {
-            testSuiteConfigurationPath = args[0];
-        }else {
-            testSuiteConfigurationPath = "test.runner.json";
-        }
+        CommandLine commandLine = Cmd.getCommandLine(args);
 
-        TestSuite rawTestSuite = new ResourceConfigProvider(testSuiteConfigurationPath).getTestSuite();
+        String testSuitePath = commandLine.getOptionValue("ts");
+        String[] reporters = commandLine.getOptionValues("r");
+
+        TestSuite rawTestSuite = new FileProvider(testSuitePath).getTestSuite();
         TestSuite testSuite = new ParamsMapper().map(rawTestSuite);
 
        TestRunner testRunner =   new TestRunnerBuilder()
-                .addReporter(new SoutReporter())
-//                .addReporter(new HtmlReporter("../../resources/", "template.ftl"))
+               .withTestListeners(new ArrayList<>(getReporters(reporters)))
                 .build();
 
        testRunner
                .run(testSuite)
                .report();
+    }
+
+    public static Set<Reporter> getReporters(String[] commandReporters) {
+        Set<Reporter> reporters = new HashSet<>();
+        if(commandReporters != null) {
+            Arrays.asList(commandReporters).forEach(reporter -> {
+                switch(reporter.toLowerCase()) {
+                    case "sout": reporters.add(new SoutReporter());
+                        break;
+                    case "html": reporters.add(new HtmlReporter("../../resources/", "template.ftl"));
+                        break;
+                }
+            });
+        }
+        return reporters;
     }
 }

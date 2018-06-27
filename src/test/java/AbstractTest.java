@@ -1,5 +1,5 @@
 import verify.VerifyIf;
-import config.TestCaseProvider;
+import config.TestSuiteProvider;
 import config.TestSuite;
 import exception.CannotReadFileException;
 import json.JsonMapper;
@@ -13,8 +13,8 @@ public class AbstractTest {
 
     protected VerifyIf verifyIf = new VerifyIf();
 
-    protected TestCaseProvider getProvider(String fileName) {
-        return  new TestCaseProvider() {
+    protected TestSuiteProvider getProvider(String fileName) {
+        return  new TestSuiteProvider() {
 
             public TestSuite getTestSuite() {
                 return get(fileName);

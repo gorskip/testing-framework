@@ -1,4 +1,4 @@
-import config.TestCaseProvider;
+import config.TestSuiteProvider;
 import config.TestCase;
 import config.TestSuite;
 import config.rest.Rest;
@@ -11,7 +11,7 @@ public class TestSuiteProviderTest extends AbstractTest {
 
     @Test
     public void configProviderTest() {
-       TestCaseProvider provider = getProvider("provider.test.json");
+       TestSuiteProvider provider = getProvider("provider.test.json");
 
         TestSuite testSuite = provider.getTestSuite();
         assert "Test Suite 1".equals(testSuite.getName());

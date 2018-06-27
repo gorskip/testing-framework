@@ -1,14 +1,10 @@
 package config;
 
-import exception.CannotReadFileException;
 import json.JsonMapper;
-import json.Params;
-import org.apache.commons.io.FileUtils;
 
 import java.io.File;
-import java.io.IOException;
 
-public class ResourceConfigProvider implements TestCaseProvider {
+public class ResourceConfigProvider implements TestSuiteProvider {
 
     private String fileName;
 
@@ -27,13 +23,5 @@ public class ResourceConfigProvider implements TestCaseProvider {
     public File getResource(String name) {
         ClassLoader classLoader = getClass().getClassLoader();
         return new File(classLoader.getResource(name).getFile());
-    }
-
-    private String getFileContent(File file) {
-        try {
-            return FileUtils.readFileToString(file, Params.ENCODING);
-        } catch (IOException e) {
-            throw new CannotReadFileException("Cannot read configuration " + file, e);
-        }
     }
 }

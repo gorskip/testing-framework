@@ -9,7 +9,7 @@ public interface Reporter {
 
     void onTestSuccess(TestCase testCase);
     void onTestFailure(TestCase testCase, String failureMessage);
-    void onTestSkip(TestCase testCase);
+    void onTestSkipped(TestCase testCase);
     void onTestsFinish();
 
     default String testResultsToJson(List<TestResult> testResults) {

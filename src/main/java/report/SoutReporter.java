@@ -27,7 +27,7 @@ public class SoutReporter implements Reporter {
     }
 
     @Override
-    public void onTestSkip(TestCase testCase) {
+    public void onTestSkipped(TestCase testCase) {
         TestResult testResult = new TestResult();
         testResult.setStatus(Status.SKIPPED);
         testResult.setTestCase(testCase);
