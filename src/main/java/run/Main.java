@@ -6,6 +6,7 @@ import config.ParamsMapper;
 import config.TestSuite;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.ParseException;
+import report.ExtractBuilder;
 import report.HtmlTestListener;
 import report.TestListener;
 import report.SoutTestListener;
@@ -36,6 +37,7 @@ public class Main {
 
     public static Set<TestListener> getReporters(String[] commandReporters) {
         Set<TestListener> testListeners = new HashSet<>();
+        testListeners.add(new ExtractBuilder());
         if(commandReporters != null) {
             Arrays.asList(commandReporters).forEach(reporter -> {
                 switch(reporter.toLowerCase()) {
