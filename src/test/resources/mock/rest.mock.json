@@ -67,6 +67,123 @@
         ]
       }
     }
-  }
+  },
+  {
+    "name": "list_response",
+    "expected": {
+      "status": 200,
+      "body": [
+        {
+          "id": 4,
+          "message": "RestDB Message",
+          "author": "gorskip",
+          "tags": [
+            {
+              "id": 5,
+              "name": "development"
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "message": "First stupid insight",
+          "author": "gorskip",
+          "tags": [
+            {
+              "id": 3,
+              "name": "Animals"
+            }
+          ]
+        }
 
+      ]
+    },
+    "response": {
+      "status": 200,
+      "headers": null,
+      "body": [
+        {
+          "id": 1,
+          "message": "First stupid insight",
+          "author": "gorskip",
+          "tags": [
+            {
+              "id": 3,
+              "name": "Animals"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "message": "RestDB Message",
+          "author": "gorskip",
+          "tags": [
+            {
+              "id": 5,
+              "name": "development"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "list_response_with_order",
+    "expected": {
+      "status": 200,
+      "body": [
+        {
+          "id": 4,
+          "message": "RestDB Message",
+          "author": "gorskip",
+          "tags": [
+            {
+              "id": 5,
+              "name": "development"
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "message": "First stupid insight",
+          "author": "gorskip",
+          "tags": [
+            {
+              "id": 3,
+              "name": "Animals"
+            }
+          ]
+        }
+
+      ]
+    },
+    "response": {
+      "status": 200,
+      "headers": null,
+      "body": [
+        {
+          "id": 1,
+          "message": "First stupid insight",
+          "author": "gorskip",
+          "tags": [
+            {
+              "id": 3,
+              "name": "Animals"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "message": "RestDB Message",
+          "author": "gorskip",
+          "tags": [
+            {
+              "id": 5,
+              "name": "development"
+            }
+          ]
+        }
+      ]
+    }
+  }
 ]
