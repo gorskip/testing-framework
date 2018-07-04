@@ -1,6 +1,7 @@
 package config.mock;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import exception.CannotFindMockException;
 import exception.CannotReadFileException;
 import json.JsonMapper;
 import json.Params;
@@ -22,10 +23,15 @@ public class Mock {
     public RestMock restMock(String name) {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource(sourceName).getFile());
-        return JsonMapper.fromJson(getFileContent(file), new TypeReference<List<RestMock>>() {})
+        List<RestMock> mocks = JsonMapper.fromJson(getFileContent(file), new TypeReference<List<RestMock>>() {
+        })
                 .stream()
                 .filter(mock -> name.equals(mock.getName()))
-                .collect(Collectors.toList()).get(0);
+                .collect(Collectors.toList());
+        if(mocks.isEmpty()) {
+            throw new CannotFindMockException("Cannnot find mock with name: " + name);
+        }
+        return mocks.get(0);
     }
 
     private String getFileContent(File file) {
