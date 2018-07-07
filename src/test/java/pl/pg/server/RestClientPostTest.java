@@ -1,16 +1,17 @@
+package pl.pg.server;
+
 import client.RestClient;
 import client.RestClientBuilder;
 import client.mapper.RestResponse;
+import config.ParamsMapper;
 import config.ResourceConfigProvider;
 import config.TestCase;
 import config.TestSuite;
 import config.rest.Expected;
 import config.rest.Rest;
-import config.ParamsMapper;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import java.io.IOException;
+import pl.pg.AbstractTest;
 
 public class RestClientPostTest extends AbstractTest {
 
@@ -22,9 +23,8 @@ public class RestClientPostTest extends AbstractTest {
         testSuite = new ParamsMapper().map(rawTestSuite);
     }
 
-
     @Test
-    public void Should_Create_New_Object() throws IOException {
+    public void Should_Create_New_Object() {
         TestCase testCase = testSuite.getTests().get(0);
 
         RestClient restClient = new RestClientBuilder().build();
@@ -34,17 +34,7 @@ public class RestClientPostTest extends AbstractTest {
 
         RestResponse response = restClient.execute(rest.getRequest());
 
-        //mock contains expected object
-//        assertContains(expected, mock);
-
-        // PROBABLY EQUALS,
-//        TODO: check if mock is object or array
-
         verifyIf.given(response)
                 .contains(expected).body();
-
-
     }
-
-
 }

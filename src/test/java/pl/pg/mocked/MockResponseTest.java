@@ -1,3 +1,5 @@
+package pl.pg.mocked;
+
 import client.mapper.Response;
 import config.mock.Mock;
 import config.mock.RestMock;

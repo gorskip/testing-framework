@@ -1,3 +1,5 @@
+package pl.pg;
+
 import verify.VerifyIf;
 import config.TestSuiteProvider;
 import config.TestSuite;

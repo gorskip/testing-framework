@@ -1,3 +1,5 @@
+package pl.pg.server;
+
 import client.RestClient;
 import client.RestClientBuilder;
 import client.entity.Insight;
@@ -12,6 +14,7 @@ import json.JsonMapper;
 import config.ParamsMapper;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import pl.pg.AbstractTest;
 
 public class RestClientTest extends AbstractTest {
 

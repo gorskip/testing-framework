@@ -1,3 +1,5 @@
+package pl.pg.mocked;
+
 import config.TestSuite;
 import config.mock.Mock;
 import config.mock.MockResponse;
@@ -6,9 +8,10 @@ import config.rest.Expected;
 import exception.AssertionException;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import pl.pg.AbstractTest;
 import verify.VerifyIf;
 
-public class ListResponseParsingTest extends  AbstractTest {
+public class ListResponseParsingTest extends AbstractTest {
 
     private static TestSuite testSuite;
 
@@ -18,7 +21,6 @@ public class ListResponseParsingTest extends  AbstractTest {
     @BeforeClass
     public static void setup() {
         mock = new Mock("mock/rest.mock.json");
-
     }
 
     @Test

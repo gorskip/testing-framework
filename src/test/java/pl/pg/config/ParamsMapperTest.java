@@ -1,8 +1,11 @@
+package pl.pg.config;
+
 import config.TestSuiteProvider;
 import config.TestSuite;
 import json.JsonMapper;
 import config.ParamsMapper;
 import org.junit.Test;
+import pl.pg.AbstractTest;
 
 public class ParamsMapperTest extends AbstractTest {
 

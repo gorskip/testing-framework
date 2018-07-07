@@ -1,3 +1,5 @@
+package pl.pg.config;
+
 import config.TestSuiteProvider;
 import config.TestCase;
 import config.TestSuite;
@@ -5,6 +7,7 @@ import config.rest.Rest;
 import config.rest.Request;
 import config.db.Db;
 import org.junit.Test;
+import pl.pg.AbstractTest;
 
 public class TestSuiteProviderTest extends AbstractTest {
 
