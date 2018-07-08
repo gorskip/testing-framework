@@ -6,7 +6,7 @@ import client.entity.Insight;
 import client.mapper.RestResponse;
 import config.ResourceConfigProvider;
 import config.TestCase;
-import config.TestSuite;
+import config.Story;
 import config.rest.Expected;
 import config.rest.Request;
 import config.rest.Rest;
@@ -18,19 +18,19 @@ import pl.pg.AbstractTest;
 
 public class RestClientTest extends AbstractTest {
 
-    private static TestSuite testSuite;
+    private static Story story;
 
     @BeforeClass
     public static void setup() {
-        TestSuite rawTestSuite = new ResourceConfigProvider("restclient.json").getTestSuite();
-        testSuite = new ParamsMapper().map(rawTestSuite);
+        Story rawStory = new ResourceConfigProvider("restclient.json").getStory();
+        story = new ParamsMapper().map(rawStory);
     }
 
     @Test
     public void Should_Return_Valid_Object_By_GET_Method() {
         RestClient restClient = new RestClientBuilder().build();
 
-        Request request = testSuite.getTests().get(0).getRest().getRequest();
+        Request request = story.getTests().get(0).getRest().getRequest();
         System.out.println(JsonMapper.toJson(request));
 
         RestResponse<Insight> response = restClient.execute(request, Insight.class);
@@ -48,7 +48,7 @@ public class RestClientTest extends AbstractTest {
     public void Should_Validate_Response_Against_Expected_Value() {
         RestClient restClient = new RestClientBuilder().build();
 
-        TestCase test = testSuite.getTests().get(0);
+        TestCase test = story.getTests().get(0);
         Rest rest = test.getRest();
         Request request = rest.getRequest();
 
@@ -63,7 +63,7 @@ public class RestClientTest extends AbstractTest {
     public void Should_Validate_Response_Using_Own_Verifier() {
         RestClient restClient = new RestClientBuilder().build();
 
-        TestCase test = testSuite.getTests().get(0);
+        TestCase test = story.getTests().get(0);
         Rest rest = test.getRest();
         Request request = rest.getRequest();
 

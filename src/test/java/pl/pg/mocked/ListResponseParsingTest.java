@@ -1,6 +1,6 @@
 package pl.pg.mocked;
 
-import config.TestSuite;
+import config.Story;
 import config.mock.Mock;
 import config.mock.MockResponse;
 import config.mock.RestMock;
@@ -13,7 +13,7 @@ import verify.VerifyIf;
 
 public class ListResponseParsingTest extends AbstractTest {
 
-    private static TestSuite testSuite;
+    private static Story story;
 
     static Mock mock;
     RestMock restMock;

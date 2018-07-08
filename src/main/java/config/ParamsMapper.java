@@ -10,16 +10,16 @@ import java.util.stream.Collectors;
 
 public class ParamsMapper {
 
-    public TestSuite map(TestSuite testSuite) {
-        Map<String, Object> suiteParams = testSuite.getParams();
-        testSuite.setTests(testSuite.getTests().stream().map(test -> {
+    public Story map(Story story) {
+        Map<String, Object> suiteParams = story.getParams();
+        story.setTests(story.getTests().stream().map(test -> {
             test.setRest(fillParamValues(test.getRest()));
             test.setDb(fillDbParams(test.getDb()));
             test =  fillTestParams(test, suiteParams);
             return test;
 
         }).collect(Collectors.toList()));
-        return testSuite;
+        return story;
     }
 
     private Rest fillParamValues(Rest rest) {

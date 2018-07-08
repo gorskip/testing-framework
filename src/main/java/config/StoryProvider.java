@@ -7,9 +7,9 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 
-public interface TestSuiteProvider {
+public interface StoryProvider {
 
-    TestSuite getTestSuite();
+    Story getStory();
 
     default String getFileContent(File file) {
         try {

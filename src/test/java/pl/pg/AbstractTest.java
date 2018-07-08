@@ -1,8 +1,8 @@
 package pl.pg;
 
 import verify.VerifyIf;
-import config.TestSuiteProvider;
-import config.TestSuite;
+import config.StoryProvider;
+import config.Story;
 import exception.CannotReadFileException;
 import json.JsonMapper;
 import json.Params;
@@ -15,19 +15,19 @@ public class AbstractTest {
 
     protected VerifyIf verifyIf = new VerifyIf();
 
-    protected TestSuiteProvider getProvider(String fileName) {
-        return  new TestSuiteProvider() {
+    protected StoryProvider getProvider(String fileName) {
+        return  new StoryProvider() {
 
-            public TestSuite getTestSuite() {
+            public Story getStory() {
                 return get(fileName);
             }
         };
     }
 
-    protected TestSuite get(String fileName) {
+    protected Story get(String fileName) {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource(fileName).getFile());
-        return JsonMapper.fromJson(getFileContent(file), TestSuite.class);
+        return JsonMapper.fromJson(getFileContent(file), Story.class);
     }
 
     private String getFileContent(File file) {

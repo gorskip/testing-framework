@@ -6,7 +6,7 @@ import client.mapper.RestResponse;
 import config.ParamsMapper;
 import config.ResourceConfigProvider;
 import config.TestCase;
-import config.TestSuite;
+import config.Story;
 import config.rest.Expected;
 import config.rest.Rest;
 import org.junit.BeforeClass;
@@ -15,17 +15,17 @@ import pl.pg.AbstractTest;
 
 public class RestClientPostTest extends AbstractTest {
 
-    private static TestSuite testSuite;
+    private static Story story;
 
     @BeforeClass
     public static void setup() {
-        TestSuite rawTestSuite = new ResourceConfigProvider("rest.post.json").getTestSuite();
-        testSuite = new ParamsMapper().map(rawTestSuite);
+        Story rawStory = new ResourceConfigProvider("rest.post.json").getStory();
+        story = new ParamsMapper().map(rawStory);
     }
 
     @Test
     public void Should_Create_New_Object() {
-        TestCase testCase = testSuite.getTests().get(0);
+        TestCase testCase = story.getTests().get(0);
 
         RestClient restClient = new RestClientBuilder().build();
 

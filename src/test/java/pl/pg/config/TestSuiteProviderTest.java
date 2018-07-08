@@ -1,8 +1,8 @@
 package pl.pg.config;
 
-import config.TestSuiteProvider;
+import config.StoryProvider;
 import config.TestCase;
-import config.TestSuite;
+import config.Story;
 import config.rest.Rest;
 import config.rest.Request;
 import config.db.Db;
@@ -14,15 +14,15 @@ public class TestSuiteProviderTest extends AbstractTest {
 
     @Test
     public void configProviderTest() {
-       TestSuiteProvider provider = getProvider("provider.test.json");
+       StoryProvider provider = getProvider("provider.test.json");
 
-        TestSuite testSuite = provider.getTestSuite();
-        assert "Test Suite 1".equals(testSuite.getName());
-        assert 2 == testSuite.getTests().size();
-        assert 5 == testSuite.getParams().entrySet().size();
+        Story story = provider.getStory();
+        assert "Test Suite 1".equals(story.getName());
+        assert 2 == story.getTests().size();
+        assert 5 == story.getParams().entrySet().size();
 
 
-        TestCase testCase = testSuite.getTests().get(0);
+        TestCase testCase = story.getTests().get(0);
         assert "Name of test 1".equals(testCase.getName());
         assert "simple".equals(testCase.getTag());
         assert 2 == testCase.getParams().entrySet().size();
@@ -41,7 +41,7 @@ public class TestSuiteProviderTest extends AbstractTest {
         assert "select * from :table_name".equals(db.getQuery());
         assert null == db.getParams();
 
-        TestCase testCase2 = testSuite.getTests().get(1);
+        TestCase testCase2 = story.getTests().get(1);
         assert "Name of test 2".equals(testCase2.getName());
         assert "complex".equals(testCase2.getTag());
         assert 1 == testCase2.getParams().entrySet().size();

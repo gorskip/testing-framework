@@ -4,7 +4,7 @@ import json.JsonMapper;
 
 import java.io.File;
 
-public class ResourceConfigProvider implements TestSuiteProvider {
+public class ResourceConfigProvider implements StoryProvider {
 
     private String fileName;
 
@@ -14,10 +14,10 @@ public class ResourceConfigProvider implements TestSuiteProvider {
 
     public ResourceConfigProvider() {}
 
-    public TestSuite getTestSuite() {
+    public Story getStory() {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource(fileName).getFile());
-        return JsonMapper.fromJson(getFileContent(file), TestSuite.class);
+        return JsonMapper.fromJson(getFileContent(file), Story.class);
     }
 
     public File getResource(String name) {

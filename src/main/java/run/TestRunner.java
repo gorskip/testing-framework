@@ -4,7 +4,7 @@ import client.RestClient;
 import client.RestClientBuilder;
 import client.mapper.Response;
 import config.TestCase;
-import config.TestSuite;
+import config.Story;
 import config.rest.Expected;
 import config.rest.Request;
 import config.rest.Rest;
@@ -29,9 +29,9 @@ public class TestRunner {
         this.testListeners = testListeners;
     }
 
-    public TestRunner run(TestSuite testSuite) {
-        System.out.println("Running Test Suite: " + testSuite.getName());
-        runTests(testSuite.getTests());
+    public TestRunner run(Story story) {
+        System.out.println("Running Test Suite: " + story.getName());
+        runTests(story.getTests());
         return this;
     }
 

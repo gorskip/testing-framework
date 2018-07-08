@@ -3,7 +3,7 @@ package run;
 import cli.CliOptions;
 import config.FileProvider;
 import config.ParamsMapper;
-import config.TestSuite;
+import config.Story;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -28,13 +28,13 @@ public class Main {
     }
 
     private static void runTests(String storyFile) {
-        TestSuite rawTestSuite = new FileProvider(storyFile).getTestSuite();
-        TestSuite testSuite = new ParamsMapper().map(rawTestSuite);
+        Story rawStory = new FileProvider(storyFile).getStory();
+        Story story = new ParamsMapper().map(rawStory);
         TestRunner testRunner =   new TestRunnerBuilder()
                 .addReporter(new SoutTestListener())
                 .build();
         testRunner
-                .run(testSuite)
+                .run(story)
                 .report();
     }
 }
