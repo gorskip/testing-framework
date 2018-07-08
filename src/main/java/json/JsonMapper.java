@@ -8,8 +8,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.flipkart.zjsonpatch.JsonDiff;
-import com.sun.xml.internal.ws.encoding.soap.DeserializationException;
-import com.sun.xml.internal.ws.encoding.soap.SerializationException;
+import exception.DeserializationException;
+import exception.SerializationException;
 
 import java.io.IOException;
 import java.util.List;
