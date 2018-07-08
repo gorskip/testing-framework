@@ -1,53 +1,40 @@
 package run;
 
-import cmd.Cmd;
+import cli.CliOptions;
 import config.FileProvider;
 import config.ParamsMapper;
 import config.TestSuite;
 import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.ParseException;
-import report.ExtractBuilder;
-import report.HtmlTestListener;
-import report.TestListener;
 import report.SoutTestListener;
-
-import java.util.*;
 
 public class Main {
 
 
     public static void main(String[] args) throws ParseException {
+        CommandLineParser parser = new DefaultParser();
+        CommandLine cmd = parser.parse(CliOptions.getOptions(), args);
 
-        CommandLine commandLine = Cmd.getCommandLine(args);
+        if(cmd.hasOption("help")) {
+            CliOptions.printHelp();
+            return;
+        }
 
-        String testSuitePath = commandLine.getOptionValue("ts");
-        String[] reporters = commandLine.getOptionValues("r");
+        String storyFile = cmd.getOptionValue("story");
+        runTests(storyFile);
 
-        TestSuite rawTestSuite = new FileProvider(testSuitePath).getTestSuite();
-        TestSuite testSuite = new ParamsMapper().map(rawTestSuite);
-
-       TestRunner testRunner =   new TestRunnerBuilder()
-               .withTestListeners(new ArrayList<>(getReporters(reporters)))
-                .build();
-
-       testRunner
-               .run(testSuite)
-               .report();
     }
 
-    public static Set<TestListener> getReporters(String[] commandReporters) {
-        Set<TestListener> testListeners = new HashSet<>();
-        testListeners.add(new ExtractBuilder());
-        if(commandReporters != null) {
-            Arrays.asList(commandReporters).forEach(reporter -> {
-                switch(reporter.toLowerCase()) {
-                    case "sout": testListeners.add(new SoutTestListener());
-                        break;
-                    case "html": testListeners.add(new HtmlTestListener("../../resources/", "template.ftl"));
-                        break;
-                }
-            });
-        }
-        return testListeners;
+    private static void runTests(String storyFile) {
+        TestSuite rawTestSuite = new FileProvider(storyFile).getTestSuite();
+        TestSuite testSuite = new ParamsMapper().map(rawTestSuite);
+        TestRunner testRunner =   new TestRunnerBuilder()
+                .addReporter(new SoutTestListener())
+                .build();
+        testRunner
+                .run(testSuite)
+                .report();
     }
 }
