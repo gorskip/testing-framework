@@ -1,5 +1,6 @@
 package config;
 
+import exception.StoryFileNotFoundException;
 import json.JsonMapper;
 
 import java.io.File;
@@ -14,6 +15,10 @@ public class FileProvider implements TestSuiteProvider {
 
     @Override
     public TestSuite getTestSuite() {
-         return JsonMapper.fromJson(getFileContent(new File(filePath)), TestSuite.class);
+        File file = new File(filePath);
+        if(!file.exists()) {
+            throw new StoryFileNotFoundException(file.getAbsolutePath());
+        }
+        return JsonMapper.fromJson(getFileContent(file), TestSuite.class);
     }
 }
