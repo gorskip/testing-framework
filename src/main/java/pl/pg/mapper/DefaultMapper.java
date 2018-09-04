@@ -1,9 +1,9 @@
-package mapper;
+package pl.pg.mapper;
 
-import annotation.Column;
-import annotation.Mapper;
-import exception.CannotCreateNewInstanceException;
-import exception.CannotMapColumn;
+import pl.pg.annotation.Column;
+import pl.pg.annotation.Mapper;
+import pl.pg.exception.CannotCreateNewInstanceException;
+import pl.pg.exception.CannotMapColumn;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.jdbc.core.RowMapper;
 

@@ -1,7 +1,7 @@
-package config;
+package pl.pg.config;
 
-import exception.StoryFileNotFoundException;
-import json.JsonMapper;
+import pl.pg.exception.StoryFileNotFoundException;
+import pl.pg.json.JsonMapper;
 
 import java.io.File;
 

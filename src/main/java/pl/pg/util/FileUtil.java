@@ -1,7 +1,7 @@
-package util;
+package pl.pg.util;
 
-import exception.CannotWriteFileException;
-import json.JsonMapper;
+import pl.pg.exception.CannotWriteFileException;
+import pl.pg.json.JsonMapper;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;

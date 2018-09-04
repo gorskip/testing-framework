@@ -1,7 +1,7 @@
-package report;
+package pl.pg.report;
 
-import config.TestCase;
-import json.JsonMapper;
+import pl.pg.config.TestCase;
+import pl.pg.json.JsonMapper;
 
 import java.util.ArrayList;
 import java.util.List;

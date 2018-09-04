@@ -1,4 +1,4 @@
-package mapper;
+package pl.pg.mapper;
 
 public interface SourceMapper {
 

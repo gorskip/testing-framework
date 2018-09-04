@@ -1,4 +1,4 @@
-package annotation;
+package pl.pg.annotation;
 
 import org.apache.commons.lang3.StringUtils;
 

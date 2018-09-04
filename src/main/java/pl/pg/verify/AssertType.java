@@ -1,4 +1,4 @@
-package verify;
+package pl.pg.verify;
 
 public enum AssertType {
 

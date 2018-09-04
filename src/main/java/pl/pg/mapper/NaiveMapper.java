@@ -1,4 +1,4 @@
-package mapper;
+package pl.pg.mapper;
 
 public class NaiveMapper implements SourceMapper {
 

@@ -1,4 +1,4 @@
-package pl.pg.pg;
+package pl.pg;
 
 import pl.pg.verify.VerifyIf;
 import pl.pg.config.StoryProvider;

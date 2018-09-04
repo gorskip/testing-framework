@@ -1,9 +1,9 @@
-package client.mapper;
+package pl.pg.client.mapper;
 
 import com.mashape.unirest.http.Headers;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
-import json.JsonMapper;
+import pl.pg.json.JsonMapper;
 
 public class RestResponse<T> implements Response<T> {
 

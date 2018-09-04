@@ -1,7 +1,7 @@
-package config;
+package pl.pg.config;
 
-import exception.CannotReadFileException;
-import json.Params;
+import pl.pg.exception.CannotReadFileException;
+import pl.pg.json.Params;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;

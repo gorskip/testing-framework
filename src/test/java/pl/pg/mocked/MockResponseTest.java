@@ -1,4 +1,4 @@
-package pl.pg.pg.mocked;
+package pl.pg.mocked;
 
 import pl.pg.client.mapper.Response;
 import pl.pg.config.mock.Mock;

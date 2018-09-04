@@ -1,4 +1,4 @@
-package cli;
+package pl.pg.cli;
 
 import lombok.Data;
 import org.apache.commons.cli.HelpFormatter;

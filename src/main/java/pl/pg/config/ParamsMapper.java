@@ -1,8 +1,8 @@
-package config;
+package pl.pg.config;
 
-import config.db.Db;
-import config.rest.Rest;
-import json.JsonMapper;
+import pl.pg.config.db.Db;
+import pl.pg.config.rest.Rest;
+import pl.pg.json.JsonMapper;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Map;

@@ -1,6 +1,6 @@
-package report;
+package pl.pg.report;
 
-import config.TestCase;
+import pl.pg.config.TestCase;
 
 public interface TestListener {
 

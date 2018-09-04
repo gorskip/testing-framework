@@ -1,4 +1,4 @@
-package verify.diff;
+package pl.pg.verify.diff;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

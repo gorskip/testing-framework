@@ -1,4 +1,4 @@
-package json;
+package pl.pg.json;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -8,8 +8,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.flipkart.zjsonpatch.JsonDiff;
-import exception.DeserializationException;
-import exception.SerializationException;
+import pl.pg.exception.DeserializationException;
+import pl.pg.exception.SerializationException;
 
 import java.io.IOException;
 import java.util.List;

@@ -1,7 +1,7 @@
-package client.entity;
+package pl.pg.client.entity;
 
-import annotation.Column;
-import annotation.MappedBy;
+import pl.pg.annotation.Column;
+import pl.pg.annotation.MappedBy;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -10,13 +10,10 @@ import lombok.EqualsAndHashCode;
 @MappedBy
 public class Employee {
 
-    @Column(name = "FIRST_NAME")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "LAST_NAME")
-    private String surname;
-
-    @Column
-    private String city;
+    @Column(name = "salary")
+    private Double salary;
 
 }

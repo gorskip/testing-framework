@@ -1,6 +1,6 @@
-package annotation;
+package pl.pg.annotation;
 
-import mapper.DefaultMapper;
+import pl.pg.mapper.DefaultMapper;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

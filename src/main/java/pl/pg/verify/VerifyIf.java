@@ -1,16 +1,16 @@
-package verify;
+package pl.pg.verify;
 
-import client.mapper.Response;
+import pl.pg.client.mapper.Response;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
-import config.rest.Expected;
-import exception.AssertionException;
-import json.JsonMapper;
+import pl.pg.config.rest.Expected;
+import pl.pg.exception.AssertionException;
+import pl.pg.json.JsonMapper;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-import verify.diff.Diff;
-import verify.diff.DiffSummarize;
-import verify.diff.DiffSummarizeBuilder;
-import verify.diff.MoveDiff;
+import pl.pg.verify.diff.Diff;
+import pl.pg.verify.diff.DiffSummarize;
+import pl.pg.verify.diff.DiffSummarizeBuilder;
+import pl.pg.verify.diff.MoveDiff;
 
 import java.util.ArrayList;
 import java.util.List;

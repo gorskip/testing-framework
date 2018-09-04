@@ -1,4 +1,4 @@
-package annotation;
+package pl.pg.annotation;
 
 public @interface Column {
 

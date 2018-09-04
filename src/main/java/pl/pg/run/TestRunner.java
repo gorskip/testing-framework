@@ -1,15 +1,15 @@
-package run;
+package pl.pg.run;
 
-import client.RestClient;
-import client.RestClientBuilder;
-import client.mapper.Response;
-import config.TestCase;
-import config.Story;
-import config.rest.Expected;
-import config.rest.Request;
-import config.rest.Rest;
-import report.ExtractBuilder;
-import report.TestListener;
+import pl.pg.client.RestClient;
+import pl.pg.client.RestClientBuilder;
+import pl.pg.client.mapper.Response;
+import pl.pg.config.TestCase;
+import pl.pg.config.Story;
+import pl.pg.config.rest.Expected;
+import pl.pg.config.rest.Request;
+import pl.pg.config.rest.Rest;
+import pl.pg.report.ExtractBuilder;
+import pl.pg.report.TestListener;
 
 import java.util.ArrayList;
 import java.util.List;

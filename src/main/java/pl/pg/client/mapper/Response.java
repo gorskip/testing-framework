@@ -1,4 +1,4 @@
-package client.mapper;
+package pl.pg.client.mapper;
 
 import com.mashape.unirest.http.Headers;
 

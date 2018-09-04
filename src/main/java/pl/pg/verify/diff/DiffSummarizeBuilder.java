@@ -1,7 +1,7 @@
-package verify.diff;
+package pl.pg.verify.diff;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import json.JsonMapper;
+import pl.pg.json.JsonMapper;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -1,6 +1,6 @@
-package config.mock;
+package pl.pg.config.mock;
 
-import client.mapper.Response;
+import pl.pg.client.mapper.Response;
 import com.mashape.unirest.http.Headers;
 import lombok.Data;
 

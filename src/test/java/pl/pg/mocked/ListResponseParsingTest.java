@@ -1,13 +1,14 @@
-package pl.pg.pg.mocked;
+package pl.pg.mocked;
 
+import org.junit.BeforeClass;
+import org.junit.Test;
+import pl.pg.AbstractTest;
 import pl.pg.config.Story;
 import pl.pg.config.mock.Mock;
 import pl.pg.config.mock.MockResponse;
 import pl.pg.config.mock.RestMock;
 import pl.pg.config.rest.Expected;
 import pl.pg.exception.AssertionException;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import pl.pg.verify.VerifyIf;
 
 public class ListResponseParsingTest extends AbstractTest {

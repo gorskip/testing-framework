@@ -1,4 +1,4 @@
-package json;
+package pl.pg.json;
 
 public class Params {
 

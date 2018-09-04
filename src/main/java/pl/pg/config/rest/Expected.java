@@ -1,6 +1,6 @@
-package config.rest;
+package pl.pg.config.rest;
 
-import json.JsonMapper;
+import pl.pg.json.JsonMapper;
 import lombok.Data;
 
 import java.util.Map;

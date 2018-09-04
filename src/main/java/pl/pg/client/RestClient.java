@@ -1,19 +1,31 @@
-package client;
+package pl.pg.client;
 
-import client.mapper.RestResponse;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import config.rest.Request;
-import exception.RequestException;
-import json.JsonMapper;
+import com.mashape.unirest.request.HttpRequestWithBody;
+import com.mashape.unirest.request.body.MultipartBody;
 import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import pl.pg.client.mapper.RestResponse;
+import pl.pg.config.rest.Request;
+import pl.pg.exception.RequestException;
+import pl.pg.json.JsonMapper;
 
 public class RestClient {
 
+    private HttpClient httpClient;
 
-    public RestClient(HttpClient httpClient) {
+    public RestClient() {
+        initRestClient();
+    }
+
+    private void initRestClient() {
+        if(httpClient == null) {
+            Unirest.setHttpClient(HttpClientBuilder.create().build());
+            return;
+        }
         Unirest.setHttpClient(httpClient);
     }
 
@@ -30,6 +42,10 @@ public class RestClient {
         }
         //TODO: zwroc cos sensownego, moze jakis fancy obiekt
         return null;
+    }
+
+    public void setWebSSOAuthentication(MultipartBody fields) {
+
     }
 
     private <T> RestResponse<T> post(Request request, Class<T> clazz) {
@@ -61,4 +77,12 @@ public class RestClient {
                 .asJson();
         return jsonNodeHttpResponse;
     }
+
+    public void setBasicAuth(HttpRequestWithBody basicAuth) {
+    }
+
+    public void setHttpClient(HttpClient httpClient) {
+        this.httpClient = httpClient;
+    }
+
 }

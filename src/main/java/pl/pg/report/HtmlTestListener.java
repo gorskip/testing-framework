@@ -1,11 +1,10 @@
-package report;
+package pl.pg.report;
 
-import config.ResourceConfigProvider;
-import config.TestCase;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateExceptionHandler;
+import pl.pg.config.TestCase;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -32,7 +31,8 @@ public class HtmlTestListener implements TestListener {
 
     public HtmlTestListener(File templateFile) {
         this.templateName = templateFile.getName();
-        this.templateDirectory = templateFile.toPath().getParent().getFileName().toAbsolutePath().toString();
+        this.templateDirectory = templateFile.toPath().getParent().toFile().getAbsolutePath();
+        System.out.printf(templateDirectory);
         configure();
         configureTemplate();
     }
@@ -48,9 +48,9 @@ public class HtmlTestListener implements TestListener {
     private void configure() {
         this.cfg = new Configuration(Configuration.VERSION_2_3_27);
         try {
-            cfg.setDirectoryForTemplateLoading(new ResourceConfigProvider().getResource("ftl"));
+            cfg.setDirectoryForTemplateLoading(new File(templateDirectory));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(templateName, e);
         }
         cfg.setDefaultEncoding("UTF-8");
         cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
@@ -99,7 +99,7 @@ public class HtmlTestListener implements TestListener {
         }
 
         try {
-            out = new FileWriter("test-report.html");
+            out = new FileWriter("test-pl.pg.report.html");
             temp.process(root, out);
         } catch (IOException e) {
             e.printStackTrace();

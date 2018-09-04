@@ -1,10 +1,10 @@
-package config.mock;
+package pl.pg.config.mock;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import exception.CannotFindMockException;
-import exception.CannotReadFileException;
-import json.JsonMapper;
-import json.Params;
+import pl.pg.exception.CannotFindMockException;
+import pl.pg.exception.CannotReadFileException;
+import pl.pg.json.JsonMapper;
+import pl.pg.json.Params;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;

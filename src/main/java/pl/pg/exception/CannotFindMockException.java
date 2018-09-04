@@ -1,4 +1,4 @@
-package exception;
+package pl.pg.exception;
 
 public class CannotFindMockException extends RuntimeException {
 

@@ -1,7 +1,7 @@
-package config;
+package pl.pg.config;
 
-import config.rest.Rest;
-import config.db.Db;
+import pl.pg.config.rest.Rest;
+import pl.pg.config.db.Db;
 import lombok.Data;
 
 import java.util.Map;

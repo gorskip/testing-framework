@@ -1,6 +1,6 @@
-package mapper;
+package pl.pg.mapper;
 
-import annotation.Column;
+import pl.pg.annotation.Column;
 import lombok.Data;
 
 import java.lang.reflect.Field;

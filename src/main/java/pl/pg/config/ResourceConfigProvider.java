@@ -1,6 +1,6 @@
-package config;
+package pl.pg.config;
 
-import json.JsonMapper;
+import pl.pg.json.JsonMapper;
 
 import java.io.File;
 

@@ -1,4 +1,4 @@
-package report;
+package pl.pg.report;
 
 public enum Status {
 

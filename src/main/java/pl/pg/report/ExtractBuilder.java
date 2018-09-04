@@ -1,7 +1,7 @@
-package report;
+package pl.pg.report;
 
-import config.TestCase;
-import util.FileUtil;
+import pl.pg.config.TestCase;
+import pl.pg.util.FileUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +37,6 @@ public class ExtractBuilder implements TestListener {
 
     @Override
     public void onTestsFinish() {
-        FileUtil.saveAsJson("test-report.json", testResults);
+        FileUtil.saveAsJson("test-pl.pg.report.pl.pg.json", testResults);
     }
 }

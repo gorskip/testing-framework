@@ -1,4 +1,4 @@
-package config.db;
+package pl.pg.config.db;
 
 import lombok.Data;
 

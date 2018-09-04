@@ -1,4 +1,4 @@
-package config;
+package pl.pg.config;
 
 import lombok.Data;
 

@@ -1,6 +1,6 @@
-package run;
+package pl.pg.run;
 
-import report.TestListener;
+import pl.pg.report.TestListener;
 
 import java.util.List;
 

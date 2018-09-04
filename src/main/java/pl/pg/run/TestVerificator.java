@@ -1,9 +1,9 @@
-package run;
+package pl.pg.run;
 
-import client.mapper.Response;
-import config.rest.Expected;
-import config.rest.Type;
-import verify.VerifyIf;
+import pl.pg.client.mapper.Response;
+import pl.pg.config.rest.Expected;
+import pl.pg.config.rest.Type;
+import pl.pg.verify.VerifyIf;
 
 public class TestVerificator {
 
