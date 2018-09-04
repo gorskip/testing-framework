@@ -10,7 +10,6 @@ import org.springframework.jdbc.core.RowMapper;
 import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Types;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -46,9 +45,11 @@ public class DefaultMapper<T> implements RowMapper<T> {
 //    TODO: Add other types
     private void mapWithColumnType(T instance, ResultSet resultSet, int i, String columnName, Field field) throws SQLException, IllegalAccessException {
         int type = resultSet.getMetaData().getColumnType(i);
+        field.setAccessible(true);
         switch(type) {
-            case Types.VARCHAR: field.set(instance, resultSet.getString(columnName)); break;
-        }
+//            case Types.VARCHAR: field.set(instance, resultSet.getString(columnName)); break;
+            default: field.set(instance, resultSet.getObject(columnName));
+         }
     }
 
     private String getColumnName(SourceField sourceField) {

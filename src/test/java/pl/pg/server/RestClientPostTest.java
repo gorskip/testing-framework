@@ -1,17 +1,16 @@
-package pl.pg.server;
+package pl.pg.pg.server;
 
-import client.RestClient;
-import client.RestClientBuilder;
-import client.mapper.RestResponse;
-import config.ParamsMapper;
-import config.ResourceConfigProvider;
-import config.TestCase;
-import config.Story;
-import config.rest.Expected;
-import config.rest.Rest;
+import pl.pg.client.RestClient;
+import pl.pg.client.RestClientBuilder;
+import pl.pg.client.mapper.RestResponse;
+import pl.pg.config.ParamsMapper;
+import pl.pg.config.ResourceConfigProvider;
+import pl.pg.config.TestCase;
+import pl.pg.config.Story;
+import pl.pg.config.rest.Expected;
+import pl.pg.config.rest.Rest;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import pl.pg.AbstractTest;
 
 public class RestClientPostTest extends AbstractTest {
 

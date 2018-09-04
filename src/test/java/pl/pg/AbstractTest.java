@@ -1,11 +1,11 @@
-package pl.pg;
+package pl.pg.pg;
 
-import verify.VerifyIf;
-import config.StoryProvider;
-import config.Story;
-import exception.CannotReadFileException;
-import json.JsonMapper;
-import json.Params;
+import pl.pg.verify.VerifyIf;
+import pl.pg.config.StoryProvider;
+import pl.pg.config.Story;
+import pl.pg.exception.CannotReadFileException;
+import pl.pg.json.JsonMapper;
+import pl.pg.json.Params;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;

@@ -1,11 +1,10 @@
-package pl.pg.config;
+package pl.pg.pg.config;
 
-import config.StoryProvider;
-import config.Story;
-import json.JsonMapper;
-import config.ParamsMapper;
+import pl.pg.config.StoryProvider;
+import pl.pg.config.Story;
+import pl.pg.json.JsonMapper;
+import pl.pg.config.ParamsMapper;
 import org.junit.Test;
-import pl.pg.AbstractTest;
 
 public class ParamsMapperTest extends AbstractTest {
 

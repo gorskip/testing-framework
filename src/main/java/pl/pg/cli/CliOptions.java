@@ -11,7 +11,7 @@ public class CliOptions {
     public static Options getOptions() {
         Options options = new Options();
         options.addOption(
-                Option.builder("s")
+                Option.builder("story")
                         .hasArg()
                         .required(false)
                         .desc("Path to story configuration file")

@@ -1,20 +1,19 @@
-package pl.pg.server;
+package pl.pg.pg.server;
 
-import client.RestClient;
-import client.RestClientBuilder;
-import client.entity.Insight;
-import client.mapper.RestResponse;
-import config.ResourceConfigProvider;
-import config.TestCase;
-import config.Story;
-import config.rest.Expected;
-import config.rest.Request;
-import config.rest.Rest;
-import json.JsonMapper;
-import config.ParamsMapper;
+import pl.pg.client.RestClient;
+import pl.pg.client.RestClientBuilder;
+import pl.pg.client.entity.Insight;
+import pl.pg.client.mapper.RestResponse;
+import pl.pg.config.ResourceConfigProvider;
+import pl.pg.config.TestCase;
+import pl.pg.config.Story;
+import pl.pg.config.rest.Expected;
+import pl.pg.config.rest.Request;
+import pl.pg.config.rest.Rest;
+import pl.pg.json.JsonMapper;
+import pl.pg.config.ParamsMapper;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import pl.pg.AbstractTest;
 
 public class RestClientTest extends AbstractTest {
 
@@ -37,7 +36,7 @@ public class RestClientTest extends AbstractTest {
 
         assert 200 == response.getStatus();
         String header = response.getHeaders().getFirst("Content-Type");
-        assert header.contains("application/json;charset=UTF-8");
+        assert header.contains("application/pl.pg.json;charset=UTF-8");
         Insight insight = response.getBody();
 //        assert 1 == insight.getId();
         assert "First stupid insight".equals(insight.getMessage());

@@ -8,7 +8,9 @@ import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.ParseException;
+import report.HtmlTestListener;
 import report.SoutTestListener;
+import util.ResourceUtil;
 
 public class Main {
 
@@ -32,6 +34,7 @@ public class Main {
         Story story = new ParamsMapper().map(rawStory);
         TestRunner testRunner =   new TestRunnerBuilder()
                 .addReporter(new SoutTestListener())
+                .addReporter(new HtmlTestListener(new ResourceUtil().getFile("/test.runner.json")))
                 .build();
         testRunner
                 .run(story)

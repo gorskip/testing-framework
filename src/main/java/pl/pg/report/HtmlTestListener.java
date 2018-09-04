@@ -7,10 +7,7 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateExceptionHandler;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +26,13 @@ public class HtmlTestListener implements TestListener {
     public HtmlTestListener(String templateDirectory, String templateName) {
         this.templateName = templateName;
         this.templateDirectory = templateDirectory;
+        configure();
+        configureTemplate();
+    }
+
+    public HtmlTestListener(File templateFile) {
+        this.templateName = templateFile.getName();
+        this.templateDirectory = templateFile.toPath().getParent().getFileName().toAbsolutePath().toString();
         configure();
         configureTemplate();
     }
@@ -81,7 +85,7 @@ public class HtmlTestListener implements TestListener {
 
     @Override
     public void onTestsFinish() {
-//        root.put("results", results);
+        root.put("results", results);
         root.put("name", "TEST NAME");
         root.put("result", results.get(0));
         root.put("results", results);

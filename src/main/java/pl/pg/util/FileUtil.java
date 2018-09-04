@@ -18,4 +18,9 @@ public class FileUtil {
             throw new CannotWriteFileException(filePath, e);
         }
     }
+
+    public static File getResource(String fileName) {
+        return new ResourceUtil().getFile(fileName);
+    }
+
 }

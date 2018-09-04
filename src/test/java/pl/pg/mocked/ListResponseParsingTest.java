@@ -1,15 +1,14 @@
-package pl.pg.mocked;
+package pl.pg.pg.mocked;
 
-import config.Story;
-import config.mock.Mock;
-import config.mock.MockResponse;
-import config.mock.RestMock;
-import config.rest.Expected;
-import exception.AssertionException;
+import pl.pg.config.Story;
+import pl.pg.config.mock.Mock;
+import pl.pg.config.mock.MockResponse;
+import pl.pg.config.mock.RestMock;
+import pl.pg.config.rest.Expected;
+import pl.pg.exception.AssertionException;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import pl.pg.AbstractTest;
-import verify.VerifyIf;
+import pl.pg.verify.VerifyIf;
 
 public class ListResponseParsingTest extends AbstractTest {
 

@@ -1,13 +1,12 @@
-package pl.pg.config;
+package pl.pg.pg.config;
 
-import config.StoryProvider;
-import config.TestCase;
-import config.Story;
-import config.rest.Rest;
-import config.rest.Request;
-import config.db.Db;
+import pl.pg.config.StoryProvider;
+import pl.pg.config.TestCase;
+import pl.pg.config.Story;
+import pl.pg.config.rest.Rest;
+import pl.pg.config.rest.Request;
+import pl.pg.config.db.Db;
 import org.junit.Test;
-import pl.pg.AbstractTest;
 
 public class TestSuiteProviderTest extends AbstractTest {
 

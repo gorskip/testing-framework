@@ -1,12 +1,12 @@
-package pl.pg.mocked;
+package pl.pg.pg.mocked;
 
-import client.mapper.Response;
-import config.mock.Mock;
-import config.mock.RestMock;
-import config.rest.Expected;
+import pl.pg.client.mapper.Response;
+import pl.pg.config.mock.Mock;
+import pl.pg.config.mock.RestMock;
+import pl.pg.config.rest.Expected;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import verify.VerifyIf;
+import pl.pg.verify.VerifyIf;
 
 public class MockResponseTest {
 
