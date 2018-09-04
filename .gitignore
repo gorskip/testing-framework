@@ -1,6 +1,6 @@
 *.iml
 target/
 .idea/
-test-report.html
-rest-report.json
-test-report.json
+test-pl.pg.report.html
+rest-pl.pg.report.pl.pg.json
+test-pl.pg.report.pl.pg.json
