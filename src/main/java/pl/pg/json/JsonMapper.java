@@ -69,10 +69,18 @@ public class JsonMapper {
     }
 
     public static <T> T fromJsonToListObject(String json) {
+        return fromJsonToListObject(json, Object.class);
+    }
+
+    public static <T> List<T> fromJsonToList(Object json, Class<T> clazz) {
+        return (List<T>) fromJsonToListObject(toJson(json), clazz);
+    }
+
+    public static <T> T fromJsonToListObject(String json, Class clazz) {
         try {
             return MAPPER.readValue(
                     json,
-                    MAPPER.getTypeFactory().constructParametricType(List.class, Object.class)
+                    MAPPER.getTypeFactory().constructParametricType(List.class, clazz)
             );
         } catch (IOException e) {
             throw new DeserializationException("Cannot deserialize: " + json, e);

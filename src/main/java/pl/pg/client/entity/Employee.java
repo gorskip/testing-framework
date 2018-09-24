@@ -1,19 +1,22 @@
 package pl.pg.client.entity;
 
-import pl.pg.annotation.Column;
-import pl.pg.annotation.MappedBy;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import pl.pg.annotation.Column;
+import pl.pg.annotation.MappedBy;
 
 @Data
 @EqualsAndHashCode
 @MappedBy
+@ToString
 public class Employee {
 
-    @Column(name = "name")
+    private Long id;
+
+    @Column(name = "EMPLOYEE_NAME")
     private String name;
 
-    @Column(name = "salary")
     private Double salary;
 
 }

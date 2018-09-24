@@ -1,5 +1,6 @@
 package pl.pg.client;
 
+import org.apache.commons.dbutils.QueryRunner;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -16,6 +17,8 @@ public class DbClient {
     private String dbUsername;
     private String dbPassword;
     private JdbcTemplate jdbcTemplate;
+    private  QueryRunner queryRunner;
+    private final DataSource dataSource;
 
     public DbClient(String driverClassName, String url, String dbUsername, String dbPassword) {
         this.driverClassName = driverClassName;
@@ -23,13 +26,21 @@ public class DbClient {
         this.dbUsername = dbUsername;
         this.dbPassword = dbPassword;
         this.jdbcTemplate  = new JdbcTemplate(createDataSource());
+        this.dataSource = createDataSource();
+        this.queryRunner = new QueryRunner(dataSource);
     }
 
-    public <T> List<T> query(String query, Class<T> clazz) {
+    public DbClient(DataSource dataSource) {
+        this.dataSource = dataSource;
+        this.jdbcTemplate = new JdbcTemplate(dataSource);
+        this.queryRunner = new QueryRunner(dataSource);
+    }
+
+    public <T> List<T> jdbcTemplateQuery(String query, Class<T> clazz) {
         return jdbcTemplate.query(query, new DefaultMapper<>(clazz));
     }
 
-    public <T> List<T> query(String query, RowMapper mapper) {
+    public <T> List<T> jdbcTemplateQuery(String query, RowMapper mapper) {
         return jdbcTemplate.query(query, mapper);
     }
 
@@ -48,5 +59,15 @@ public class DbClient {
 
     public void closeConnection() throws SQLException {
         jdbcTemplate.getDataSource().getConnection().close();
+    }
+
+    public <T> List<T> query(String query, Class<T> clazz) throws SQLException {
+        return new QueryExecutor<T>(queryRunner)
+                .execute(query, clazz);
+    }
+
+    public <T> DbResponse<T> execute(String query, Class<T> clazz) throws SQLException {
+        return new QueryExecutor<T>(queryRunner)
+                .getResponse(query, clazz);
     }
 }
