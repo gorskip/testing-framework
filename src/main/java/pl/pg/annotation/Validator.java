@@ -1,14 +1,15 @@
 package pl.pg.annotation;
 
+import pl.pg.validator.EntityValidator;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)
-public @interface Column {
+@Target(ElementType.TYPE)
+public @interface Validator {
 
-    String name() default "";
-    Class mapper() default void.class;
+    Class<? extends EntityValidator> name();
 }
