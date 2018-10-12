@@ -4,15 +4,11 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import com.fasterxml.jackson.databind.node.JsonNodeType;
 import org.apache.commons.collections4.IteratorUtils;
 import pl.pg.config.db.Db;
 import pl.pg.config.rest.Rest;
-import pl.pg.json.JsonMapper;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -74,7 +70,7 @@ public class StoryDeserializer extends StdDeserializer<Story> {
         JsonNode requestNode = restNode.get("request");
         JsonNode expectedNode = restNode.get("expected");
 
-
+        return null;
 
     }
 
