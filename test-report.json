@@ -1,0 +1,71 @@
+[ {
+  "status" : "FAILURE",
+  "testCase" : {
+    "name" : "Get Insight",
+    "tag" : "get",
+    "rest" : {
+      "request" : {
+        "method" : "GET",
+        "url" : "http://localhost:8085/insight/1",
+        "headers" : {
+          "Accept" : "application/json"
+        }
+      },
+      "expected" : {
+        "status" : 200,
+        "body" : {
+          "id" : 1,
+          "message" : "First stupid insight",
+          "author" : "gorskip",
+          "tags" : [ {
+            "name" : "Animals",
+            "id" : 3
+          } ]
+        },
+        "headers" : {
+          "Content-Type" : "application/json;charset=UTF-8"
+        },
+        "type" : {
+          "status" : "EQUAL",
+          "body" : "CONTAIN",
+          "headers" : "CONTAIN",
+          "withOrder" : true
+        }
+      }
+    }
+  },
+  "failureMessage" : "Cannot execute request: Request(method=GET, url=http://localhost:8085/insight/1, headers={Accept=application/json}, body=null)"
+}, {
+  "status" : "FAILURE",
+  "testCase" : {
+    "name" : "Post Insight",
+    "tag" : "post",
+    "rest" : {
+      "request" : {
+        "method" : "POST",
+        "url" : "http://localhost:8085/insight",
+        "headers" : {
+          "Content-Type" : "application/json;charset=UTF-8"
+        },
+        "body" : {
+          "message" : "RestDB Message",
+          "tags" : [ "development" ]
+        }
+      },
+      "expected" : {
+        "status" : 200,
+        "body" : {
+          "author" : "gorskip",
+          "message" : "RestDB Message 2",
+          "tags" : [ {
+            "name" : "development"
+          } ]
+        },
+        "headers" : {
+          "Content-Type" : "application/json;charset=UTF-8"
+        }
+      }
+    }
+  },
+  "failureMessage" : "Cannot execute request: Request(method=POST, url=http://localhost:8085/insight, headers={Content-Type=application/json;charset=UTF-8}, body={message=RestDB Message, tags=[development]})"
+} ]

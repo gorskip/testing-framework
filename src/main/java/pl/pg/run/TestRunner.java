@@ -1,8 +1,8 @@
 package pl.pg.run;
 
-import pl.pg.client.RestClient;
-import pl.pg.client.RestClientBuilder;
-import pl.pg.client.mapper.Response;
+import pl.pg.client.rest.RestClient;
+import pl.pg.client.rest.RestClientBuilder;
+import pl.pg.client.rest.Response;
 import pl.pg.config.TestCase;
 import pl.pg.config.Story;
 import pl.pg.config.rest.Expected;

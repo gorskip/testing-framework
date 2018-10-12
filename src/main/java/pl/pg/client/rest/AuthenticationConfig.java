@@ -1,4 +1,4 @@
-package pl.pg.client;
+package pl.pg.client.rest;
 
 import lombok.Builder;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package pl.pg.client;
+package pl.pg.client.rest;
 
 import com.mashape.unirest.http.HttpMethod;
 import com.mashape.unirest.request.HttpRequestWithBody;

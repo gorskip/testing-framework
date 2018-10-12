@@ -2,7 +2,7 @@ package pl.pg.verify;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
-import pl.pg.client.mapper.Response;
+import pl.pg.client.rest.Response;
 import pl.pg.config.rest.Expected;
 import pl.pg.exception.AssertionException;
 import pl.pg.json.JsonMapper;
@@ -13,6 +13,7 @@ import pl.pg.verify.diff.MoveDiff;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class VerifyIf {
@@ -31,7 +32,7 @@ public class VerifyIf {
         }
     }
 
-    private void setResponsedBody(Response response) {
+    private void setResponseBody(Response response) {
         if(response != null && this.responseBody == null) {
             this.responseBody = response.getBody();
         }
@@ -48,7 +49,7 @@ public class VerifyIf {
 
     public VerifyIf given(Response response) {
         this.response = response;
-        setResponsedBody(response);
+        setResponseBody(response);
         return this;
     }
 
@@ -169,5 +170,22 @@ public class VerifyIf {
         }
     }
 
+    public VerifyIf equalsQueryResult(List queryResult) {
+        Expected expected = new Expected();
+        expected.setBody(queryResult);
+        this.given(response).has(expected).body();
+        return this;
+    }
 
+    private boolean deepEquals(List a, List b) {
+        return Arrays.deepEquals(a.toArray(), b.toArray());
+    }
+
+    private String responsesDiffMessage(Object a, Object b) {
+        return "Rest and Database responses are different"
+                .concat("\nRest response:\n")
+                .concat(a.toString())
+                .concat("\nQuery result:\n")
+                .concat(b.toString());
+    }
 }

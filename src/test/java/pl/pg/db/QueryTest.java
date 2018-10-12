@@ -2,10 +2,7 @@ package pl.pg.db;
 
 import org.junit.Test;
 import pl.pg.AbstractTest;
-import pl.pg.client.DbClient;
-import pl.pg.mapper.DefaultMapper;
-
-import java.util.List;
+import pl.pg.client.db.DbClient;
 
 public class QueryTest extends AbstractTest {
 
@@ -17,7 +14,8 @@ public class QueryTest extends AbstractTest {
                 "postgres",
                 "admin");
 
-        List employees = dbClient.getJdbcTemplate().query("select * from employee", new DefaultMapper(TestEmployee.class));
+//        List employees = dbClient.getJdbcTemplate().query("select * from employee", new DefaultMapper(TestEmployee.class));
+        throw new RuntimeException();
 
     }
 }

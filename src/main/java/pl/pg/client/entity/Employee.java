@@ -4,12 +4,16 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import pl.pg.annotation.Column;
-import pl.pg.annotation.MappedBy;
+import pl.pg.annotation.Mapper;
+import pl.pg.annotation.Validator;
+import pl.pg.client.mapper.employee.EmployeeMapper;
+import pl.pg.validator.EmployeeValidator;
 
 @Data
 @EqualsAndHashCode
-@MappedBy
 @ToString
+@Validator(name = EmployeeValidator.class)
+@Mapper(EmployeeMapper.class)
 public class Employee {
 
     private Long id;
@@ -18,5 +22,4 @@ public class Employee {
     private String name;
 
     private Double salary;
-
 }

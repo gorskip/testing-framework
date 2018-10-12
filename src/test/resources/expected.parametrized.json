@@ -5,7 +5,8 @@
     "suite_param_2": "suite_param_value_2",
     "param_3": "suite_param_value_3",
     "param_4": "suite_param_value_4",
-    "table_name": "table_name_value"
+    "table_name": "table_name_value",
+    "numberParam": 300
   },
   "tests": [
     {
@@ -18,7 +19,8 @@
       "rest": {
         "params": {
           "apiParam": "apiParamValue",
-          "param_4": "api_param_4"
+          "param_4": "api_param_4",
+          "someParam": ":numberParam"
         },
         "request": {
           "method": "GET",

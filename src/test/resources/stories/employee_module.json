@@ -1,0 +1,26 @@
+{
+  "name": "Employee module test",
+  "params": {
+    "apiUrl": "http://localhost:8085/employee"
+  },
+  "tests": [
+    {
+      "name": "Get Insight",
+      "tag": "get",
+      "rest": {
+        "request" : {
+          "method": "GET",
+          "url": ":apiUrl",
+          "headers": {
+            "Accept": "application/json"
+          }
+        },
+        "expected": {
+          "status": 200
+        }
+      },
+      "db": {
+        "query": "select * from employee"
+      }
+    }
+  ]}

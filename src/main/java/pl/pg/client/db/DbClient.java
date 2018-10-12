@@ -1,10 +1,9 @@
-package pl.pg.client;
+package pl.pg.client.db;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import pl.pg.mapper.DefaultMapper;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -36,16 +35,8 @@ public class DbClient {
         this.queryRunner = new QueryRunner(dataSource);
     }
 
-    public <T> List<T> jdbcTemplateQuery(String query, Class<T> clazz) {
-        return jdbcTemplate.query(query, new DefaultMapper<>(clazz));
-    }
-
-    public <T> List<T> jdbcTemplateQuery(String query, RowMapper mapper) {
+    public <T> List<T> query(String query, RowMapper mapper) {
         return jdbcTemplate.query(query, mapper);
-    }
-
-    public JdbcTemplate getJdbcTemplate() {
-        return jdbcTemplate;
     }
 
     private DataSource createDataSource() {

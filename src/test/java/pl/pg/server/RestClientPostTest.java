@@ -3,10 +3,10 @@ package pl.pg.server;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import pl.pg.AbstractTest;
-import pl.pg.client.RestClient;
-import pl.pg.client.RestClientBuilder;
-import pl.pg.client.mapper.RestResponse;
-import pl.pg.config.ParamsMapper;
+import pl.pg.client.rest.Response;
+import pl.pg.client.rest.RestClient;
+import pl.pg.client.rest.RestClientBuilder;
+import pl.pg.config.DefaultParamsMapper;
 import pl.pg.config.ResourceConfigProvider;
 import pl.pg.config.Story;
 import pl.pg.config.TestCase;
@@ -20,7 +20,7 @@ public class RestClientPostTest extends AbstractTest {
     @BeforeClass
     public static void setup() {
         Story rawStory = new ResourceConfigProvider("rest.post.json").getStory();
-        story = new ParamsMapper().map(rawStory);
+        story = new DefaultParamsMapper().map(rawStory);
     }
 
     @Test
@@ -32,7 +32,7 @@ public class RestClientPostTest extends AbstractTest {
         Rest rest = testCase.getRest();
         Expected expected = rest.getExpected();
 
-        RestResponse response = restClient.execute(rest.getRequest());
+        Response response = restClient.execute(rest.getRequest());
 
         verifyIf.given(response)
                 .contains(expected).body();

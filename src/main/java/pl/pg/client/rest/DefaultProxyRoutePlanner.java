@@ -1,4 +1,4 @@
-package pl.pg.client;
+package pl.pg.client.rest;
 
 import org.apache.http.HttpException;
 import org.apache.http.HttpHost;

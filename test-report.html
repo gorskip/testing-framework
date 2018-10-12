@@ -1,0 +1,37 @@
+<html>
+<head>
+  <title>Test Report</title>
+</head>
+<body>
+<table style="width: 100%;">
+<tr>
+    <th></th>
+    <th>Test name</th>
+    <th>Status</th>
+    <th>Expected</th>
+    <th>Response<th>
+    <th>Failure Message</th>
+  </tr>
+    <tr>
+        <td class="block">1.</td>
+        <td class="block">Get Insight</td>
+        <td class="block">FAILURE</td>
+        <td class="block">Expected(status=200, body={id=1, message=First stupid insight, author=gorskip, tags=[{name=Animals, id=3}]}, headers={Content-Type=application/pl.pg.json;charset=UTF-8}, type=Type(status=EQUAL, body=CONTAIN, headers=CONTAIN, withOrder=true))</td>
+        <td class="block">???</td>
+            <td class="block">
+                    Cannot execute request: Request(method=GET, url=http://localhost:8085/insight/1, headers={Accept=application/pl.pg.json}, body=null)
+            <td>
+    </tr>
+    <tr>
+        <td class="block">2.</td>
+        <td class="block">Post Insight</td>
+        <td class="block">FAILURE</td>
+        <td class="block">Expected(status=200, body={author=gorskip, message=RestDB Message 2, tags=[{name=development}]}, headers={Content-Type=application/pl.pg.json;charset=UTF-8}, type=null)</td>
+        <td class="block">???</td>
+            <td class="block">
+                    Cannot execute request: Request(method=POST, url=http://localhost:8085/insight, headers={Content-Type=application/pl.pg.json;charset=UTF-8}, body={message=RestDB Message, tags=[development]})
+            <td>
+    </tr>
+</table>
+</body>
+</html>

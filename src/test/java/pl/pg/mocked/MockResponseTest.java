@@ -1,6 +1,6 @@
 package pl.pg.mocked;
 
-import pl.pg.client.mapper.Response;
+import pl.pg.client.rest.Response;
 import pl.pg.config.mock.Mock;
 import pl.pg.config.mock.RestMock;
 import pl.pg.config.rest.Expected;

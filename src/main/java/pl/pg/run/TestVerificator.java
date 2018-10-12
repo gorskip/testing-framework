@@ -1,6 +1,6 @@
 package pl.pg.run;
 
-import pl.pg.client.mapper.Response;
+import pl.pg.client.rest.Response;
 import pl.pg.config.rest.Expected;
 import pl.pg.config.rest.Type;
 import pl.pg.verify.VerifyIf;

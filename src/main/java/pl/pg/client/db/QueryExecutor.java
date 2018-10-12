@@ -1,4 +1,4 @@
-package pl.pg.client;
+package pl.pg.client.db;
 
 import org.apache.commons.dbutils.BasicRowProcessor;
 import org.apache.commons.dbutils.BeanProcessor;
@@ -6,6 +6,7 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import pl.pg.annotation.Column;
+import pl.pg.client.mapper.DefaultResultSetHandler;
 
 import java.lang.reflect.Field;
 import java.sql.SQLException;
@@ -23,7 +24,9 @@ public class QueryExecutor<T> {
     }
 
     public <T> List<T> execute(String query, Class<T> clazz) throws SQLException {
-        ResultSetHandler<List<T>> resultHandler = prepareResultHandler(clazz);
+        System.out.println(clazz.getName());
+//        ResultSetHandler<List<T>> resultHandler = prepareResultHandler(clazz);
+        ResultSetHandler<List<T>> resultHandler = new DefaultResultSetHandler<T>(clazz);
         return queryRunner.query(query, resultHandler);
     }
 
@@ -57,4 +60,5 @@ public class QueryExecutor<T> {
         }
         return fieldsMap;
     }
+
 }

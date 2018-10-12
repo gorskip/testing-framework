@@ -1,4 +1,4 @@
-package pl.pg.client;
+package pl.pg.client.rest;
 
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
@@ -8,7 +8,6 @@ import com.mashape.unirest.request.HttpRequestWithBody;
 import com.mashape.unirest.request.body.MultipartBody;
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
-import pl.pg.client.mapper.RestResponse;
 import pl.pg.config.rest.Request;
 import pl.pg.exception.RequestException;
 import pl.pg.json.JsonMapper;
@@ -29,11 +28,11 @@ public class RestClient {
         Unirest.setHttpClient(httpClient);
     }
 
-    public RestResponse execute(Request request) {
+    public Response execute(Request request) {
         return execute(request, Object.class);
     }
 
-    public <T> RestResponse<T> execute(Request request, Class<T> clazz) {
+    public <T> Response<T> execute(Request request, Class clazz) {
         switch (request.getMethod()) {
             case "GET":
                 return get(request, clazz);

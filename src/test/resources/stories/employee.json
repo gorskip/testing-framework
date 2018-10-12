@@ -1,0 +1,24 @@
+{
+  "name": "Employee module",
+  "tests": [
+    {
+      "name": "Get all employees",
+      "rest": {
+        "request" : {
+          "method": "GET",
+          "url": "http://localhost:8090/employee",
+          "headers": {
+            "Accept": "application/json"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": [{"id":1,"name":"John Smith","salary":4999.0},{"id":2,"name":"Mambo Jumbo","salary":9000.0}]
+        }
+      },
+      "db": {
+        "query": "select * from employee"
+      }
+    }
+  ]
+}

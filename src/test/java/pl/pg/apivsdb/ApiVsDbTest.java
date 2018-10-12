@@ -1,8 +1,8 @@
 package pl.pg.apivsdb;
 
-import pl.pg.client.DbClient;
-import pl.pg.client.RestClient;
-import pl.pg.client.RestClientBuilder;
+import pl.pg.client.db.DbClient;
+import pl.pg.client.rest.RestClient;
+import pl.pg.client.rest.RestClientBuilder;
 
 public class ApiVsDbTest {
 

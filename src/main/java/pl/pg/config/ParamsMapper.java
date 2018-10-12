@@ -1,15 +1,16 @@
 package pl.pg.config;
 
+import org.apache.commons.lang3.StringUtils;
 import pl.pg.config.db.Db;
 import pl.pg.config.rest.Rest;
 import pl.pg.json.JsonMapper;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class ParamsMapper {
+public class ParamsMapper implements IParamsMapper {
 
+    @Override
     public Story map(Story story) {
         Map<String, Object> suiteParams = story.getParams();
         story.setTests(story.getTests().stream().map(test -> {

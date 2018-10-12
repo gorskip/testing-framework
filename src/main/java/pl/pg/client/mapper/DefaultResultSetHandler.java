@@ -1,7 +1,8 @@
 package pl.pg.client.mapper;
 
 import org.apache.commons.dbutils.ResultSetHandler;
-import pl.pg.exception.CannotCreateNewInstanceException;
+import pl.pg.annotation.Mapper;
+import pl.pg.util.InstanceUtil;
 
 import java.lang.reflect.Field;
 import java.sql.ResultSet;
@@ -24,10 +25,24 @@ public class DefaultResultSetHandler<T> implements ResultSetHandler<List<T>> {
 
     @Override
     public List<T> handle(ResultSet resultSet) throws SQLException {
+        if(clazz.isAnnotationPresent(Mapper.class)) {
+            return handleWithClassMapper(resultSet);
+        }
+        return handleWithFieldMapper(resultSet);
+    }
+
+    private List<T> handleWithClassMapper(ResultSet resultSet) throws SQLException {
+        Mapper annotation = clazz.getAnnotation(Mapper.class);
+        Class<? extends EntityMapper> mapperClass = annotation.value();
+        EntityMapper mapper = (EntityMapper) InstanceUtil.createInstanceOf(mapperClass);
+        return mapper.handle(resultSet);
+    }
+
+    private List<T> handleWithFieldMapper(ResultSet resultSet) throws SQLException {
         List<T> results = new ArrayList<>();
         ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
         while(resultSet.next()) {
-            T instance = getNewInstance();
+            T instance = (T) InstanceUtil.createInstanceOf(clazz);
             int numColumns = resultSetMetaData.getColumnCount();
             for (int i = 1; i <= numColumns; i++) {
                 String column_name = resultSetMetaData.getColumnName(i);
@@ -42,8 +57,9 @@ public class DefaultResultSetHandler<T> implements ResultSetHandler<List<T>> {
             }
             results.add(instance);
         }
-       return results;
+        return results;
     }
+
 
     private Object prepareValue(Object object, Class<? extends FieldMapper> mapperClass) throws IllegalAccessException, InstantiationException {
         if(mapperClass == null) {
@@ -51,14 +67,6 @@ public class DefaultResultSetHandler<T> implements ResultSetHandler<List<T>> {
         }
         FieldMapper mapper = mapperClass.newInstance();
         return mapper.map(object);
-    }
-
-    private T getNewInstance() {
-        try {
-            return clazz.newInstance();
-        } catch (IllegalAccessException | InstantiationException e) {
-            throw new CannotCreateNewInstanceException("For class: " + clazz.getName(), e);
-        }
     }
 
     private Map<String, FieldProperty> buildFieldsMap() {

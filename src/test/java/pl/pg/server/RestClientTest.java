@@ -3,11 +3,11 @@ package pl.pg.server;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import pl.pg.AbstractTest;
-import pl.pg.client.RestClient;
-import pl.pg.client.RestClientBuilder;
 import pl.pg.client.entity.Insight;
-import pl.pg.client.mapper.RestResponse;
-import pl.pg.config.ParamsMapper;
+import pl.pg.client.rest.Response;
+import pl.pg.client.rest.RestClient;
+import pl.pg.client.rest.RestClientBuilder;
+import pl.pg.config.DefaultParamsMapper;
 import pl.pg.config.ResourceConfigProvider;
 import pl.pg.config.Story;
 import pl.pg.config.TestCase;
@@ -23,7 +23,7 @@ public class RestClientTest extends AbstractTest {
     @BeforeClass
     public static void setup() {
         Story rawStory = new ResourceConfigProvider("restclient.json").getStory();
-        story = new ParamsMapper().map(rawStory);
+        story = new DefaultParamsMapper().map(rawStory);
     }
 
     @Test
@@ -33,7 +33,7 @@ public class RestClientTest extends AbstractTest {
         Request request = story.getTests().get(0).getRest().getRequest();
         System.out.println(JsonMapper.toJson(request));
 
-        RestResponse<Insight> response = restClient.execute(request, Insight.class);
+        Response<Insight> response = restClient.execute(request, Insight.class);
 
         assert 200 == response.getStatus();
         String header = response.getHeaders().getFirst("Content-Type");
@@ -52,7 +52,7 @@ public class RestClientTest extends AbstractTest {
         Rest rest = test.getRest();
         Request request = rest.getRequest();
 
-        RestResponse<Insight> response = restClient.execute(request, Insight.class);
+        Response<Insight> response = restClient.execute(request, Insight.class);
 
         Expected expected = rest.getExpected();
         assert expected.getBodyAs(Insight.class).equals(response.getBody());
@@ -67,7 +67,7 @@ public class RestClientTest extends AbstractTest {
         Rest rest = test.getRest();
         Request request = rest.getRequest();
 
-        RestResponse<Insight> response = restClient.execute(request, Insight.class);
+        Response<Insight> response = restClient.execute(request, Insight.class);
         Expected expected = rest.getExpected();
 
         verifyIf.given(response)

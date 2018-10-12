@@ -2,7 +2,7 @@ package pl.pg.run;
 
 import org.apache.commons.cli.ParseException;
 import pl.pg.config.FileProvider;
-import pl.pg.config.ParamsMapper;
+import pl.pg.config.DefaultParamsMapper;
 import pl.pg.config.Story;
 import pl.pg.report.HtmlTestListener;
 import pl.pg.report.SoutTestListener;
@@ -32,7 +32,7 @@ public class Main {
         String template = "C:\\development\\repositories\\testing-framework\\template.ftl";
 
         Story rawStory = new FileProvider(storyFile).getStory();
-        Story story = new ParamsMapper().map(rawStory);
+        Story story = new DefaultParamsMapper().map(rawStory);
         TestRunner testRunner =   new TestRunnerBuilder()
                 .addReporter(new SoutTestListener())
                 .addReporter(new HtmlTestListener(new File(template)))

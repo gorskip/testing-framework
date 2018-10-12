@@ -185,5 +185,14 @@
         }
       ]
     }
+  },
+
+  {
+    "name": "complex",
+    "expected": {
+      "status": 200,
+      "headers": null,
+      "body": {"simple":{"name":"Name of simple"},"name":"Name of Complex2"}
+    }
   }
 ]

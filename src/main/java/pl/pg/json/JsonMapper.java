@@ -3,15 +3,14 @@ package pl.pg.json;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.flipkart.zjsonpatch.JsonDiff;
 import pl.pg.exception.DeserializationException;
 import pl.pg.exception.SerializationException;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class JsonMapper {
@@ -22,6 +21,7 @@ public class JsonMapper {
         MAPPER = new ObjectMapper()
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                 .setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                .registerModule(new JavaTimeModule())
                 .enable(SerializationFeature.INDENT_OUTPUT);
     }
 
@@ -68,23 +68,24 @@ public class JsonMapper {
         return patchNode;
     }
 
-    public static <T> T fromJsonToListObject(String json) {
-        return fromJsonToListObject(json, Object.class);
-    }
-
     public static <T> List<T> fromJsonToList(Object json, Class<T> clazz) {
         return (List<T>) fromJsonToListObject(toJson(json), clazz);
     }
 
-    public static <T> T fromJsonToListObject(String json, Class clazz) {
+    public static List fromJsonToListObject(String json, Class clazz) {
         try {
+            JavaType valueType = MAPPER.getTypeFactory().constructParametricType(ArrayList.class, clazz);
+            System.out.println((valueType.getTypeName()));
             return MAPPER.readValue(
                     json,
-                    MAPPER.getTypeFactory().constructParametricType(List.class, clazz)
-            );
+                    valueType);
         } catch (IOException e) {
             throw new DeserializationException("Cannot deserialize: " + json, e);
         }
+    }
+
+    public static JsonNode convert(Object object) {
+        return MAPPER.valueToTree(object);
     }
 
 }

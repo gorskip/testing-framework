@@ -1,4 +1,4 @@
-package pl.pg.client;
+package pl.pg.client.db;
 
 import lombok.ToString;
 

@@ -1,0 +1,51 @@
+{
+  "name": "Employee module story",
+  "params": {
+    "url": "http://localhost:8090/employee",
+    "name": "John Locke",
+    "salary": 7000
+  },
+  "tests": [
+    {
+      "name": "Create employee",
+      "rest": {
+        "request" : {
+          "method": "POST",
+          "url": ":url",
+          "headers": {
+            "Accept": "application/json"
+          },
+          "body": {
+            "name": ":name",
+            "salary": 7000
+          }
+        },
+        "expected": {
+          "status": 201
+        }
+      }
+    },
+    {
+      "name": "Read employees",
+      "rest": {
+        "request" : {
+          "method": "GET",
+          "url": ":url",
+          "headers": {
+            "Accept": "application/json"
+          }
+        },
+        "expected": {
+          "status": 200,
+          "body": {
+            "name": ":name",
+            "salary": 7000
+          }
+        }
+      },
+      "db": {
+        "query": "select * from employee"
+      }
+    }
+  ]
+}
