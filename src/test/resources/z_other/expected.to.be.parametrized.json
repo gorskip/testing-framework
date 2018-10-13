@@ -1,5 +1,6 @@
 {
   "name": "Name of suite",
+  "dbConfig": "company_db",
   "params": {
     "apiUrl": "http://localhost:8085/application",
     "employeeName": "Janusz",
@@ -27,26 +28,26 @@
           "method": "POST",
           "url": "http://localhost:8085/application",
           "body":
-          {
+          [{
             "name": "Janusz IT",
             "department": "IT",
             "salary": 5000,
             "something": {
               "nestedName": "My nested name"
             }
-          },
+          }],
           "headers": {}
         },
         "expected": {
           "body":
-          {
+          [{
             "name": "Janusz IT",
             "department": "IT",
             "salary": 5000,
             "something": {
               "nestedName": "My nested name"
             }
-          }
+          }]
         }
       },
       "db": {

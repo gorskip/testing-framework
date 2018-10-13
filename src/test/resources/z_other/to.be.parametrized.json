@@ -23,22 +23,22 @@
           "method": "POST",
           "url": ":apiUrl",
           "body":
-          {
+          [{
             "name": ":employeeName :departmentName",
             "department": ":departmentName",
             "salary": ":salary",
             "something": ":nested"
-          },
+          }],
           "headers": {}
         },
         "expected": {
           "body":
-          {
+          [{
             "name": ":employeeName :departmentName",
             "department": ":departmentName",
             "salary": ":salary",
             "something": ":nested"
-          }
+          }]
         }
       },
       "db": {

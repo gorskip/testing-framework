@@ -1,0 +1,27 @@
+{
+  "name": "Task story",
+  "params": {
+    "dbConfig": "company_db",
+    "url": "http://localhost:8090/task"
+  },
+  "tests": [
+    {
+      "name": "Task test",
+      "rest": {
+        "request" : {
+          "method": "GET",
+          "url": ":url",
+          "headers": {
+            "Accept": "application/json"
+          }
+        },
+        "expected": {
+          "status": 200
+        }
+      },
+      "db": {
+        "query": "select * from task"
+      }
+    }
+  ]
+}

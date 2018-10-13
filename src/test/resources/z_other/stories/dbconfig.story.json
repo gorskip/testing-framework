@@ -1,0 +1,15 @@
+{
+  "name": "DbConfig",
+  "params": {
+    "dbConfig": "company_db"
+  },
+
+  "tests": [
+    {
+      "name": "Query test with dbConfig",
+      "db": {
+        "query": "select * from employee"
+      }
+    }
+  ]
+}
