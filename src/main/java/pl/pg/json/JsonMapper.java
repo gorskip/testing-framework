@@ -75,7 +75,6 @@ public class JsonMapper {
     public static List fromJsonToListObject(String json, Class clazz) {
         try {
             JavaType valueType = MAPPER.getTypeFactory().constructParametricType(ArrayList.class, clazz);
-            System.out.println((valueType.getTypeName()));
             return MAPPER.readValue(
                     json,
                     valueType);

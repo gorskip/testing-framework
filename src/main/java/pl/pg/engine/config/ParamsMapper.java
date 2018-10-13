@@ -99,8 +99,6 @@ public class ParamsMapper implements IParamsMapper {
         Iterator<Map.Entry<String, JsonNode>> fields = bodyNode.fields();
         List<Map.Entry<String, JsonNode>> bodyFields = IteratorUtils.toList(fields);
 
-        bodyFields.stream().forEach(node -> System.out.println(node));
-
         for(Map.Entry<String, JsonNode> bodyField: bodyFields) {
             JsonNode value = bodyField.getValue();
             for(Map.Entry<String, JsonNode> entry: paramEntries) {
