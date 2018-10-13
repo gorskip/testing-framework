@@ -1,4 +1,4 @@
-package pl.pg.demo.util;
+package pl.pg.demo;
 
 import pl.pg.StoryTest;
 import pl.pg.annotation.Story;

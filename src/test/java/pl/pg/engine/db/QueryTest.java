@@ -1,7 +1,7 @@
 package pl.pg.engine.db;
 
 import org.junit.Test;
-import pl.pg.AbstractTest;
+import pl.pg.engine.AbstractTest;
 import pl.pg.client.db.DbClient;
 
 public class QueryTest extends AbstractTest {

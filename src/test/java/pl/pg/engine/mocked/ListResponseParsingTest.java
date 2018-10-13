@@ -2,7 +2,7 @@ package pl.pg.engine.mocked;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import pl.pg.AbstractTest;
+import pl.pg.engine.AbstractTest;
 import pl.pg.engine.config.Story;
 import pl.pg.engine.config.mock.Mock;
 import pl.pg.engine.config.mock.MockResponse;

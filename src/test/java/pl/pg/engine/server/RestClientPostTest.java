@@ -2,7 +2,7 @@ package pl.pg.engine.server;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import pl.pg.AbstractTest;
+import pl.pg.engine.AbstractTest;
 import pl.pg.client.rest.Response;
 import pl.pg.client.rest.RestClient;
 import pl.pg.client.rest.RestClientBuilder;

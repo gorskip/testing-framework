@@ -1,7 +1,7 @@
 package pl.pg.engine.config;
 
 import org.junit.Test;
-import pl.pg.AbstractTest;
+import pl.pg.engine.AbstractTest;
 import pl.pg.engine.config.db.Db;
 import pl.pg.engine.config.rest.Request;
 import pl.pg.engine.config.rest.Rest;
