@@ -8,7 +8,8 @@ import java.util.Map;
 @Data
 public class Expected {
 
-    private int status;
+
+    private Integer status;
     private Object body;
     private Map<String, String> headers;
     private Type type;

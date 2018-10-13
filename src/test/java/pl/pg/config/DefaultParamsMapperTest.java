@@ -34,4 +34,20 @@ public class DefaultParamsMapperTest extends AbstractTest {
 
         assert JsonMapper.toJson(story).equals(JsonMapper.toJson(expectedSuite));
     }
+
+    @Test
+    public void Should_FillTestSuiteConfigWithParamsValues3() {
+        StoryProvider provider = getProvider("to.be.parametrized.json");
+
+        Story story = new ParamsMapper().map(provider.getStory());
+
+        provider = getProvider("expected.to.be.parametrized.json");
+
+        Story expectedSuite = provider.getStory();
+
+        assert story.equals(expectedSuite);
+        assert JsonMapper.toJson(story).equals(JsonMapper.toJson(expectedSuite));
+
+
+    }
 }

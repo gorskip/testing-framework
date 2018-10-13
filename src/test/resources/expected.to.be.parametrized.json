@@ -1,0 +1,57 @@
+{
+  "name": "Name of suite",
+  "params": {
+    "apiUrl": "http://localhost:8085/application",
+    "employeeName": "Janusz",
+    "salary": 4000,
+    "nested": {
+      "nestedName": "My nested name"
+    }
+  },
+  "tests": [
+    {
+      "params": {
+
+        "departmentName": "IT",
+        "salary": 5000,
+        "apiUrl": "http://localhost:8085/application",
+        "employeeName": "Janusz",
+        "nested": {
+          "nestedName": "My nested name"
+        }
+      },
+      "name": "Create new employee",
+      "tag": "post",
+      "rest": {
+        "request" : {
+          "method": "POST",
+          "url": "http://localhost:8085/application",
+          "body":
+          {
+            "name": "Janusz IT",
+            "department": "IT",
+            "salary": 5000,
+            "something": {
+              "nestedName": "My nested name"
+            }
+          },
+          "headers": {}
+        },
+        "expected": {
+          "body":
+          {
+            "name": "Janusz IT",
+            "department": "IT",
+            "salary": 5000,
+            "something": {
+              "nestedName": "My nested name"
+            }
+          }
+        }
+      },
+      "db": {
+        "query": "SELECT NAME, DEPARTMENT_NAME FROM EMPLOYEE where NAME = 'Janusz' 5000"
+      }
+    }
+  ]
+}
