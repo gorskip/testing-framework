@@ -25,11 +25,17 @@ public class ParamsMapper implements IParamsMapper {
         return story;
     }
 
-    private TestCase parametrizeTest(TestCase test, Map<String, Object> suiteParams) {
-        suiteParams.entrySet().stream()
-                .forEach(entry -> test.getParams().putIfAbsent(entry.getKey(), entry.getValue()));
+    private TestCase parametrizeTest(TestCase test, Map<String, Object> storyParams) {
+        if(test.getParams() != null){
+            storyParams.entrySet().stream()
+                    .forEach(entry -> test.getParams().putIfAbsent(entry.getKey(), entry.getValue()));
+
+        }else {
+            test.setParams(storyParams);
+        }
         parametrizeRest(test);
         parametrizeDb(test);
+
         return test;
         
     }
@@ -78,12 +84,13 @@ public class ParamsMapper implements IParamsMapper {
     }
 
     private void parametrizeRequestBody(JsonNode bodyNode, Map<String, Object> params) {
-        if(bodyNode.isArray()) {
-            IteratorUtils.toList(bodyNode.elements()).stream()
-                    .forEach(node -> parametrizeObjectBody(node, params));
-
-        }else {
-            parametrizeObjectBody(bodyNode, params);
+        if(bodyNode != null) {
+            if(bodyNode.isArray()) {
+                IteratorUtils.toList(bodyNode.elements()).stream()
+                        .forEach(node -> parametrizeObjectBody(node, params));
+            }else {
+                parametrizeObjectBody(bodyNode, params);
+            }
         }
     }
 

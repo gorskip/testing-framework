@@ -25,7 +25,6 @@ public class QueryExecutor<T> {
 
     public <T> List<T> execute(String query, Class<T> clazz) throws SQLException {
         System.out.println(clazz.getName());
-//        ResultSetHandler<List<T>> resultHandler = prepareResultHandler(clazz);
         ResultSetHandler<List<T>> resultHandler = new DefaultResultSetHandler<T>(clazz);
         return queryRunner.query(query, resultHandler);
     }

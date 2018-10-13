@@ -1,9 +1,7 @@
 package pl.pg;
 
 import org.apache.commons.io.FileUtils;
-import pl.pg.engine.config.Config;
-import pl.pg.engine.config.DefaultParamsMapper;
-import pl.pg.engine.config.Story;
+import pl.pg.engine.config.*;
 import pl.pg.exception.CannotReadFileException;
 import pl.pg.json.JsonMapper;
 import pl.pg.json.Params;
@@ -42,7 +40,7 @@ public class StoryProcessor {
     }
 
     public Map<String, Story> buildStories() {
-        DefaultParamsMapper mapper = new DefaultParamsMapper();
+        IParamsMapper mapper = new ParamsMapper();
         Path resourceDirectory = Paths.get("src","test","resources", "stories");
         Collection<File> storyFiles = FileUtils.listFiles(resourceDirectory.toFile(), new String[]{"json"}, true);
         return storyFiles.stream()
