@@ -3,7 +3,7 @@ package pl.pg.verify;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import pl.pg.client.rest.Response;
-import pl.pg.config.rest.Expected;
+import pl.pg.engine.config.rest.Expected;
 import pl.pg.exception.AssertionException;
 import pl.pg.json.JsonMapper;
 import pl.pg.verify.diff.Diff;

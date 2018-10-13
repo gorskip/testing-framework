@@ -1,8 +1,8 @@
 package pl.pg;
 
 import pl.pg.verify.VerifyIf;
-import pl.pg.config.StoryProvider;
-import pl.pg.config.Story;
+import pl.pg.engine.config.StoryProvider;
+import pl.pg.engine.config.Story;
 import pl.pg.exception.CannotReadFileException;
 import pl.pg.json.JsonMapper;
 import pl.pg.json.Params;
@@ -30,7 +30,7 @@ public class AbstractTest {
         return JsonMapper.fromJson(getFileContent(file), Story.class);
     }
 
-    private String getFileContent(File file) {
+    protected String getFileContent(File file) {
         try {
             return FileUtils.readFileToString(file, Params.ENCODING);
         } catch (IOException e) {

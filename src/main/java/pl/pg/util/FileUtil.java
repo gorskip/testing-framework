@@ -23,4 +23,8 @@ public class FileUtil {
         return new ResourceUtil().getFile(fileName);
     }
 
+    public static String getResourceContent(String fileName) throws IOException {
+        return FileUtils.readFileToString(getResource(fileName), ENCODING);
+    }
+
 }

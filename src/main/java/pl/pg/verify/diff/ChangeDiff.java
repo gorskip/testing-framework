@@ -1,5 +1,6 @@
 package pl.pg.verify.diff;
 
+import javafx.scene.control.TextFormatter;
 import lombok.Data;
 
 @Data

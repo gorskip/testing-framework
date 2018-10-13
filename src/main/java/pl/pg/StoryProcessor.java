@@ -1,9 +1,9 @@
 package pl.pg;
 
 import org.apache.commons.io.FileUtils;
-import pl.pg.config.DefaultParamsMapper;
-import pl.pg.config.Story;
-import pl.pg.config.env.Config;
+import pl.pg.engine.config.Config;
+import pl.pg.engine.config.DefaultParamsMapper;
+import pl.pg.engine.config.Story;
 import pl.pg.exception.CannotReadFileException;
 import pl.pg.json.JsonMapper;
 import pl.pg.json.Params;

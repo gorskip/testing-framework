@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 @Data
 @EqualsAndHashCode
-@Validator(name = TaskValidator.class)
+@Validator(TaskValidator.class)
 public class Task {
 
     private Long id;

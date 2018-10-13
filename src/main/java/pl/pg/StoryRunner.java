@@ -6,8 +6,8 @@ import org.junit.runner.Runner;
 import org.junit.runner.notification.Failure;
 import org.junit.runner.notification.RunNotifier;
 import pl.pg.annotation.Test;
-import pl.pg.config.Story;
-import pl.pg.config.TestCase;
+import pl.pg.engine.config.Story;
+import pl.pg.engine.config.TestCase;
 import pl.pg.exception.TestCaseNotFoundException;
 
 import java.lang.reflect.InvocationTargetException;

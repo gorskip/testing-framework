@@ -1,8 +1,8 @@
 package pl.pg.run;
 
 import pl.pg.client.rest.Response;
-import pl.pg.config.rest.Expected;
-import pl.pg.config.rest.Type;
+import pl.pg.engine.config.rest.Expected;
+import pl.pg.engine.config.rest.Type;
 import pl.pg.verify.VerifyIf;
 
 public class TestVerificator {

@@ -13,7 +13,7 @@ public class EmployeeMapper extends EntityMapper<Employee> {
     @Override
     public List<Employee> handle(ResultSet resultSet) throws SQLException {
         List<Employee> employees = new ArrayList<>();
-        if(resultSet.next()) {
+        while(resultSet.next()) {
             Employee employee = new Employee();
 
             long id = resultSet.getLong("id");

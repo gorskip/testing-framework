@@ -3,11 +3,11 @@ package pl.pg.run;
 import pl.pg.client.rest.RestClient;
 import pl.pg.client.rest.RestClientBuilder;
 import pl.pg.client.rest.Response;
-import pl.pg.config.TestCase;
-import pl.pg.config.Story;
-import pl.pg.config.rest.Expected;
-import pl.pg.config.rest.Request;
-import pl.pg.config.rest.Rest;
+import pl.pg.engine.config.TestCase;
+import pl.pg.engine.config.Story;
+import pl.pg.engine.config.rest.Expected;
+import pl.pg.engine.config.rest.Request;
+import pl.pg.engine.config.rest.Rest;
 import pl.pg.report.ExtractBuilder;
 import pl.pg.report.TestListener;
 
@@ -30,7 +30,6 @@ public class TestRunner {
     }
 
     public TestRunner run(Story story) {
-        System.out.println("Running Test Suite: " + story.getName());
         runTests(story.getTests());
         return this;
     }
@@ -40,7 +39,6 @@ public class TestRunner {
     }
 
     private void run(TestCase test) {
-        System.out.println("Test Case: " + test.getName());
         try {
             runRest(test.getRest());
             runOnTestSuccess(test);

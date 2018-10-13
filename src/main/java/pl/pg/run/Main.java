@@ -1,9 +1,9 @@
 package pl.pg.run;
 
 import org.apache.commons.cli.ParseException;
-import pl.pg.config.FileProvider;
-import pl.pg.config.DefaultParamsMapper;
-import pl.pg.config.Story;
+import pl.pg.engine.config.FileProvider;
+import pl.pg.engine.config.DefaultParamsMapper;
+import pl.pg.engine.config.Story;
 import pl.pg.report.HtmlTestListener;
 import pl.pg.report.SoutTestListener;
 
@@ -22,7 +22,7 @@ public class Main {
 //            return;
 //        }
 
-//        String storyFile = cmd.getOptionValue("story");
+//        String storyFile = cmd.getOptionValue("stories");
         String storyFile = "C:\\development\\api-db-test-framework\\test-suite.json";
         runTests(storyFile);
 

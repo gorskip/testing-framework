@@ -78,6 +78,16 @@ public class ParamsMapper implements IParamsMapper {
     }
 
     private void parametrizeRequestBody(JsonNode bodyNode, Map<String, Object> params) {
+        if(bodyNode.isArray()) {
+            IteratorUtils.toList(bodyNode.elements()).stream()
+                    .forEach(node -> parametrizeObjectBody(node, params));
+
+        }else {
+            parametrizeObjectBody(bodyNode, params);
+        }
+    }
+
+    private void parametrizeObjectBody(JsonNode bodyNode, Map<String, Object> params) {
         List<Map.Entry<String, JsonNode>> paramEntries = prepareParams(params);
         Iterator<Map.Entry<String, JsonNode>> fields = bodyNode.fields();
         List<Map.Entry<String, JsonNode>> bodyFields = IteratorUtils.toList(fields);

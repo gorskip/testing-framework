@@ -12,8 +12,8 @@ import pl.pg.validator.EmployeeValidator;
 @Data
 @EqualsAndHashCode
 @ToString
-@Validator(name = EmployeeValidator.class)
-@Mapper(EmployeeMapper.class)
+@Validator(EmployeeValidator.class)
+//@Mapper(EmployeeMapper.class)
 public class Employee {
 
     private Long id;

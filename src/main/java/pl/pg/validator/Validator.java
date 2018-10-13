@@ -18,7 +18,7 @@ abstract public class Validator<T> implements FieldValidator {
 
     private final List<FieldValidationSummary> fieldsSummary = new ArrayList<>();
 
-    abstract void validate(T entity);
+    public abstract void validate(T entity);
 
     protected List<FieldValidationSummary> summarize() {
         return fieldsSummary;

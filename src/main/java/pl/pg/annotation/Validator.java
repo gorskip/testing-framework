@@ -9,5 +9,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface Validator {
 
-    Class<? extends pl.pg.validator.Validator> name();
+    Class<? extends pl.pg.validator.Validator> value();
 }

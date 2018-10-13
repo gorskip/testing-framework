@@ -4,6 +4,7 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import pl.pg.engine.config.DbConfig;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -27,6 +28,13 @@ public class DbClient {
         this.jdbcTemplate  = new JdbcTemplate(createDataSource());
         this.dataSource = createDataSource();
         this.queryRunner = new QueryRunner(dataSource);
+    }
+
+    public DbClient(DbConfig dbConfig) {
+        this(   dbConfig.getDriverClassName(),
+                dbConfig.getUrl(),
+                dbConfig.getUsername(),
+                dbConfig.getPassword());
     }
 
     public DbClient(DataSource dataSource) {

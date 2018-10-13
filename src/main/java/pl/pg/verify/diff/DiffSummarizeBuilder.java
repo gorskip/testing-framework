@@ -37,7 +37,7 @@ public class DiffSummarizeBuilder {
         List<ChangeDiff> changedDiffs = getAllDiffsWithType("replace").stream()
                 .map(diff -> {
                     System.out.println(root);
-                    String expectedValue = root.at(diff.getPath()).asText();
+                    String expectedValue = JsonMapper.convert(jsonDiff).asText();
                     ChangeDiff changeDiff = new ChangeDiff();
                     changeDiff.setPath(diff.getPath());
                     changeDiff.setValue(diff.getValue());

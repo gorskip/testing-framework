@@ -8,7 +8,7 @@ import com.mashape.unirest.request.HttpRequestWithBody;
 import com.mashape.unirest.request.body.MultipartBody;
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
-import pl.pg.config.rest.Request;
+import pl.pg.engine.config.rest.Request;
 import pl.pg.exception.RequestException;
 import pl.pg.json.JsonMapper;
 

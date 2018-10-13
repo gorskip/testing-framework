@@ -4,7 +4,7 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateExceptionHandler;
-import pl.pg.config.TestCase;
+import pl.pg.engine.config.TestCase;
 
 import java.io.*;
 import java.util.ArrayList;

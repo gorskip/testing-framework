@@ -1,6 +1,6 @@
 package pl.pg.report;
 
-import pl.pg.config.TestCase;
+import pl.pg.engine.config.TestCase;
 import pl.pg.util.FileUtil;
 
 import java.util.ArrayList;

@@ -16,7 +16,7 @@ public class ValidateExecutor {
     private static ValidationSummary validateObject(Object object) {
         pl.pg.annotation.Validator annotation = object.getClass().getAnnotation(pl.pg.annotation.Validator.class);
         if(annotation != null) {
-            Validator validator = (Validator) InstanceUtil.createInstanceOf(annotation.name());
+            Validator validator = (Validator) InstanceUtil.createInstanceOf(annotation.value());
             validator.validate(object);
             List summarize = validator.summarize();
             if(!summarize.isEmpty()) {

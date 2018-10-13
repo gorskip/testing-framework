@@ -14,7 +14,7 @@ public class CliOptions {
                 Option.builder("story")
                         .hasArg()
                         .required(false)
-                        .desc("Path to story configuration file")
+                        .desc("Path to stories configuration file")
                         .longOpt("story")
                         .build());
         options.addOption(
