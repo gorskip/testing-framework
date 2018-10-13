@@ -11,4 +11,5 @@ public class Story {
     String name;
     Map<String, Object> params;
     List<TestCase> tests;
+    String dbConfig;
 }

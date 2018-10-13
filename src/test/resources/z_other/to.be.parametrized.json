@@ -1,5 +1,6 @@
 {
   "name": "Name of suite",
+  "dbConfig": "company_db",
   "params": {
     "apiUrl": "http://localhost:8085/application",
     "employeeName": "Janusz",

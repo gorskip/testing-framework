@@ -1,11 +1,11 @@
 {
   "dbConfigs": [
     {
-      "name": "default",
+      "name": "company_db",
       "driverClassName": "org.postgresql.Driver",
       "url": "jdbc:postgresql://localhost:5432/company",
-      "dbUsername": "postgres",
-      "dbPassword": "admin"
+      "username": "postgres",
+      "password": "admin"
     }
   ]
 }
