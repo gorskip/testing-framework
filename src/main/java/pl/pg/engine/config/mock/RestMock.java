@@ -1,6 +1,6 @@
-package pl.pg.config.mock;
+package pl.pg.engine.config.mock;
 
-import pl.pg.config.rest.Expected;
+import pl.pg.engine.config.rest.Expected;
 import lombok.Data;
 
 @Data

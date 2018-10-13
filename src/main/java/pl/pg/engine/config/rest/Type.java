@@ -1,4 +1,4 @@
-package pl.pg.config.rest;
+package pl.pg.engine.config.rest;
 
 import lombok.Data;
 

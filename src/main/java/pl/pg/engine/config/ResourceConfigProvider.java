@@ -1,4 +1,4 @@
-package pl.pg.config;
+package pl.pg.engine.config;
 
 import pl.pg.json.JsonMapper;
 

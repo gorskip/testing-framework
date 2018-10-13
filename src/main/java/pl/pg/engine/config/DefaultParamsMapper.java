@@ -1,7 +1,7 @@
-package pl.pg.config;
+package pl.pg.engine.config;
 
-import pl.pg.config.db.Db;
-import pl.pg.config.rest.Rest;
+import pl.pg.engine.config.db.Db;
+import pl.pg.engine.config.rest.Rest;
 import pl.pg.json.JsonMapper;
 import org.apache.commons.lang3.StringUtils;
 

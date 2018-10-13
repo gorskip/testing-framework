@@ -1,12 +1,12 @@
-package pl.pg.config;
+package pl.pg.engine.config;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import org.apache.commons.collections4.IteratorUtils;
 import org.apache.commons.lang3.StringUtils;
-import pl.pg.config.db.Db;
-import pl.pg.config.rest.Expected;
-import pl.pg.config.rest.Request;
-import pl.pg.config.rest.Rest;
+import pl.pg.engine.config.db.Db;
+import pl.pg.engine.config.rest.Expected;
+import pl.pg.engine.config.rest.Request;
+import pl.pg.engine.config.rest.Rest;
 import pl.pg.json.JsonMapper;
 
 import java.util.Iterator;

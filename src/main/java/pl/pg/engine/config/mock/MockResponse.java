@@ -1,4 +1,4 @@
-package pl.pg.config.mock;
+package pl.pg.engine.config.mock;
 
 import com.mashape.unirest.http.Headers;
 import com.mashape.unirest.http.JsonNode;

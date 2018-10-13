@@ -1,4 +1,4 @@
-package pl.pg.config.mock;
+package pl.pg.engine.config.mock;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import pl.pg.exception.CannotFindMockException;
