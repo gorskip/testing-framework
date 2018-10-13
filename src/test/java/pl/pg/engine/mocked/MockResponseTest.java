@@ -1,9 +1,9 @@
-package pl.pg.mocked;
+package pl.pg.engine.mocked;
 
 import pl.pg.client.rest.Response;
-import pl.pg.config.mock.Mock;
-import pl.pg.config.mock.RestMock;
-import pl.pg.config.rest.Expected;
+import pl.pg.engine.config.mock.Mock;
+import pl.pg.engine.config.mock.RestMock;
+import pl.pg.engine.config.rest.Expected;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import pl.pg.verify.VerifyIf;
@@ -15,7 +15,7 @@ public class MockResponseTest {
 
     @BeforeClass
     public static void setup() {
-        mock = new Mock("mock/rest.mock.json");
+        mock = new Mock("z_other/mock/rest.mock.json");
     }
 
     @Test

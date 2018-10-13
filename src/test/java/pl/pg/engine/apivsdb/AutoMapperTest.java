@@ -1,4 +1,4 @@
-package pl.pg.apivsdb;
+package pl.pg.engine.apivsdb;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
 import org.junit.Test;
@@ -6,7 +6,7 @@ import pl.pg.client.entity.Task;
 import pl.pg.client.rest.Response;
 import pl.pg.client.rest.RestClient;
 import pl.pg.client.rest.RestClientBuilder;
-import pl.pg.config.rest.Request;
+import pl.pg.engine.config.rest.Request;
 
 import java.sql.SQLException;
 import java.util.List;

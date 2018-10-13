@@ -1,11 +1,11 @@
-package pl.pg.employee;
+package pl.pg.engine.employee;
 
 import pl.pg.StoryTest;
 import pl.pg.annotation.Story;
 import pl.pg.annotation.Test;
-import pl.pg.config.TestCase;
+import pl.pg.engine.config.TestCase;
 
-@Story("Employee module story")
+@Story("Employee module stories")
 public class EmployeeModuleTest extends StoryTest {
 
     @Test("Create employee")

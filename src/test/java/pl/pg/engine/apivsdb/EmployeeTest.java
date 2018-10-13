@@ -1,9 +1,9 @@
-package pl.pg.apivsdb;
+package pl.pg.engine.apivsdb;
 
 import pl.pg.StoryTest;
 import pl.pg.annotation.Story;
 import pl.pg.annotation.Test;
-import pl.pg.config.TestCase;
+import pl.pg.engine.config.TestCase;
 
 import java.sql.SQLException;
 

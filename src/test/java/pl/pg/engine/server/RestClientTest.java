@@ -1,4 +1,4 @@
-package pl.pg.server;
+package pl.pg.engine.server;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -7,13 +7,13 @@ import pl.pg.client.entity.Insight;
 import pl.pg.client.rest.Response;
 import pl.pg.client.rest.RestClient;
 import pl.pg.client.rest.RestClientBuilder;
-import pl.pg.config.DefaultParamsMapper;
-import pl.pg.config.ResourceConfigProvider;
-import pl.pg.config.Story;
-import pl.pg.config.TestCase;
-import pl.pg.config.rest.Expected;
-import pl.pg.config.rest.Request;
-import pl.pg.config.rest.Rest;
+import pl.pg.engine.config.DefaultParamsMapper;
+import pl.pg.engine.config.ResourceConfigProvider;
+import pl.pg.engine.config.Story;
+import pl.pg.engine.config.TestCase;
+import pl.pg.engine.config.rest.Expected;
+import pl.pg.engine.config.rest.Request;
+import pl.pg.engine.config.rest.Rest;
 import pl.pg.json.JsonMapper;
 
 public class RestClientTest extends AbstractTest {

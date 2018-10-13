@@ -1,4 +1,4 @@
-package pl.pg.apivsdb;
+package pl.pg.engine.apivsdb;
 
 import pl.pg.client.db.DbClient;
 import pl.pg.client.rest.RestClient;

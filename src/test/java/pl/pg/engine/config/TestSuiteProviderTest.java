@@ -1,17 +1,17 @@
-package pl.pg.config;
+package pl.pg.engine.config;
 
 import org.junit.Test;
 import pl.pg.AbstractTest;
-import pl.pg.config.db.Db;
-import pl.pg.config.rest.Request;
-import pl.pg.config.rest.Rest;
+import pl.pg.engine.config.db.Db;
+import pl.pg.engine.config.rest.Request;
+import pl.pg.engine.config.rest.Rest;
 
 public class TestSuiteProviderTest extends AbstractTest {
 
 
     @Test
     public void configProviderTest() {
-       StoryProvider provider = getProvider("provider.test.json");
+       StoryProvider provider = getProvider("z_other/provider.test.json");
 
         Story story = provider.getStory();
         assert "Test Suite 1".equals(story.getName());

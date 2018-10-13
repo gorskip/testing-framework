@@ -1,4 +1,4 @@
-package pl.pg.db;
+package pl.pg.engine.db;
 
 public class TestEmployee {
 
