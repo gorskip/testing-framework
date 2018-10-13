@@ -1,7 +1,8 @@
-package pl.pg.validator;
+package pl.pg.engine;
 
 import org.apache.commons.lang3.StringUtils;
-import pl.pg.client.entity.Task;
+import pl.pg.engine.entity.Task;
+import pl.pg.validator.Validator;
 
 public class TaskValidator extends Validator<Task> {
 

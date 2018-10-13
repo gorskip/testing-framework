@@ -1,6 +1,7 @@
-package pl.pg.validator;
+package pl.pg.engine;
 
-import pl.pg.client.entity.Employee;
+import pl.pg.engine.entity.Employee;
+import pl.pg.validator.Validator;
 
 public class EmployeeValidator extends Validator<Employee> {
 

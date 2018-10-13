@@ -1,11 +1,11 @@
-package pl.pg.client.entity;
+package pl.pg.engine.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import pl.pg.annotation.Column;
 import pl.pg.annotation.Validator;
-import pl.pg.client.mapper.DateMapper;
-import pl.pg.validator.TaskValidator;
+import pl.pg.engine.DateMapper;
+import pl.pg.engine.TaskValidator;
 
 import java.time.LocalDate;
 

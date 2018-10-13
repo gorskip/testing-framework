@@ -7,7 +7,7 @@ import pl.pg.client.rest.Response;
 import pl.pg.client.rest.RestClient;
 import pl.pg.client.rest.RestClientBuilder;
 import pl.pg.engine.config.DefaultParamsMapper;
-import pl.pg.engine.config.ResourceConfigProvider;
+import pl.pg.engine.ResourceConfigProvider;
 import pl.pg.engine.config.Story;
 import pl.pg.engine.config.TestCase;
 import pl.pg.engine.config.rest.Expected;

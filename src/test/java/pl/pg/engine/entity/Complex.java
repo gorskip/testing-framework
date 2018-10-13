@@ -1,4 +1,4 @@
-package pl.pg.client.entity;
+package pl.pg.engine.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

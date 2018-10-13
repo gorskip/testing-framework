@@ -2,7 +2,7 @@ package pl.pg.engine.apivsdb;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
 import org.junit.Test;
-import pl.pg.client.entity.Task;
+import pl.pg.engine.entity.Task;
 import pl.pg.client.rest.Response;
 import pl.pg.client.rest.RestClient;
 import pl.pg.client.rest.RestClientBuilder;

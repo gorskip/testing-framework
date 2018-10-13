@@ -1,4 +1,6 @@
-package pl.pg.client.mapper;
+package pl.pg.engine;
+
+import pl.pg.client.mapper.FieldMapper;
 
 import java.sql.Date;
 import java.time.LocalDate;

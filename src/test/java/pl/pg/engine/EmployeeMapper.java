@@ -1,6 +1,6 @@
-package pl.pg.client.mapper.employee;
+package pl.pg.engine;
 
-import pl.pg.client.entity.Employee;
+import pl.pg.engine.entity.Employee;
 import pl.pg.client.mapper.EntityMapper;
 
 import java.sql.ResultSet;

@@ -1,13 +1,11 @@
-package pl.pg.client.entity;
+package pl.pg.engine.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import pl.pg.annotation.Column;
-import pl.pg.annotation.Mapper;
 import pl.pg.annotation.Validator;
-import pl.pg.client.mapper.employee.EmployeeMapper;
-import pl.pg.validator.EmployeeValidator;
+import pl.pg.engine.EmployeeValidator;
 
 @Data
 @EqualsAndHashCode

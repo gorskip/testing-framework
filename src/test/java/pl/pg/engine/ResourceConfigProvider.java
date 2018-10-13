@@ -1,5 +1,7 @@
-package pl.pg.engine.config;
+package pl.pg.engine;
 
+import pl.pg.engine.config.Story;
+import pl.pg.engine.config.StoryProvider;
 import pl.pg.json.JsonMapper;
 
 import java.io.File;

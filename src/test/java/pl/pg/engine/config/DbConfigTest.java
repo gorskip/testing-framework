@@ -4,7 +4,7 @@ package pl.pg.engine.config;
 import pl.pg.StoryTest;
 import pl.pg.annotation.Story;
 import pl.pg.annotation.Test;
-import pl.pg.client.entity.Employee;
+import pl.pg.engine.entity.Employee;
 import pl.pg.engine.config.db.Db;
 
 import java.sql.SQLException;
